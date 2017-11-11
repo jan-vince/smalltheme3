@@ -1,0 +1,30 @@
+description = "CTA"
+==
+
+<div class="cta">
+
+    <div class="container">
+
+        <div class="row">
+
+            {% if showCTALine %}
+
+                <div class="col-xs-12 cta-line-container">
+
+                    <div class="full-line"></div>
+
+                </div>
+
+            {% endif %}
+
+            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cta-container">
+
+                {{ contentCTA|raw }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

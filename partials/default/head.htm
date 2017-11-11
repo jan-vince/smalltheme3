@@ -1,0 +1,115 @@
+description = "Head"
+==
+<?php
+
+function onEnd() {
+
+    /*
+    *   SEO title
+    */
+    $title = $this->page->meta_title ? $this->page->meta_title : $this->page->title;
+
+    if ( $this->theme->site_title_simple_home and $this->page->url == '/' ) {
+
+    } else {
+
+        if ( $this->theme->site_title_prefix ) {
+            $title = $this->theme->site_title_prefix . ' ' . $this->theme->site_title_separator . ' ' . $title;
+        }
+
+        if ( $this->theme->site_title_suffix ) {
+            $title = $title . ' ' . $this->theme->site_title_separator . ' ' . $this->theme->site_title_suffix;
+        }
+
+    }
+
+    $this->page->meta_title = $title;
+
+}
+
+?>
+
+==
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title property="og:title">{{ this.page.meta_title ? this.page.meta_title : this.page.title }}</title>
+
+    {% if this.page.meta_description %}
+    <meta name="description"
+          property="og:description"
+          content="{{ this.page.meta_description }}">
+    {% endif %}
+
+    {% if this.template.author %}
+    <meta name="author"
+          content="{{ this.template.author }}">
+    {% endif %}
+
+    {% if this.theme.humans_allow %}
+        <link type="text/plain"
+              rel="author"
+              href="{{ 'humans'|page }}" />
+    {% endif %}
+
+    {% if this.template.site_name %}
+    <meta property="og:site_name"
+          content="{{ this.theme.site_name }}"/>
+    {% endif %}
+
+    {% if locale %}
+    <meta property="og:locale"
+          content="{{ locale=='cs' ? 'cs_CZ' : 'en_US' }}" />
+    {% endif %}
+
+    <meta property="og:image"
+          content="{{ ogImage ? ogImage|app : ('assets/images/theme-preview.png')|theme }}" />
+
+
+    {% if robots %}
+    <meta name="robots"
+          content="{{ robots }}">
+    {% endif %}
+
+    {% if canonical %}
+        <link rel="canonical"
+              href="{{ canonical }}">
+    {% else %}
+        {% if this.page.id|page %}
+            <link rel="canonical"
+                  href="{{ this.param.slug ? this.page.id|page({'slug':this.param.slug}) : this.page.id|app }}">
+        {% elseif page.id|staticPage %}
+            <link rel="canonical"
+                  href="{{ page.id|staticPage }}">
+        {% endif %}
+    {% endif %}
+
+    <link rel="icon"
+          href="{{ 'assets/favicon.png'|theme}}"
+          type="image/png">
+
+    <link rel="apple-touch-icon"
+          href="{{ 'assets/favicon.png'|theme}}"
+          type="image/png">
+
+    <!--[if IE]>
+    <link rel="shortcut icon" href="{{ "assets/favicon.ico"|theme}}">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="{{ "assets/vendor/html5shiv/dist/html5shiv-printshiv.min.js"|theme}}"></script>
+    <script src="{{ "assets/vendor/respond/dest/respond.min.js"|theme}}"></script>
+    <![endif]-->
+
+    {% if this.environment != 'dev' %}
+
+        {% partial 'default/analytics' %}
+
+    {% endif %}
+
+    {% styles %}
+
+	{#    <link rel="alternate" type="application/rss+xml" href="{{ '/'|app }}/rss" title="Blog RSS" /> #}
+
+</head>

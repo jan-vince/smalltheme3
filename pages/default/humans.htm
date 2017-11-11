@@ -1,0 +1,74 @@
+title = "Default page"
+url = "/humans.txt"
+layout = "default"
+is_hidden = 0
+==
+<?php
+    function onStart() {
+
+        $humansFile = '';
+
+        if( $this->theme->humans_allow ) {
+
+            header("Content-Type: text/plain");
+
+            if( $this->theme->humans_team ) {
+
+                $humansFile .= '/* TEAM */' . PHP_EOL;
+
+                foreach( $this->theme->humans_team as $member) {
+
+                    $humansFile .= 'Member:' . PHP_EOL;
+
+                    if( !empty($member['humans_team_name']) ) {
+                        $humansFile .= ' Name: ' . $member['humans_team_name'] . PHP_EOL;
+
+                        if( !empty($member['humans_team_website']) ) {
+                            $humansFile .= ' Site: ' . $member['humans_team_website'] . PHP_EOL;
+                        }
+
+                        if( !empty($member['humans_team_work']) ) {
+                            $humansFile .= ' Work: ' . $member['humans_team_work'] . PHP_EOL;
+                        }
+
+                    }
+
+                }
+
+                $humansFile .= PHP_EOL;
+
+            }
+
+            if( $this->theme->humans_thanks ) {
+
+                $humansFile .= '/* THANKS */' . PHP_EOL;
+
+                foreach( $this->theme->humans_thanks as $member) {
+
+                    $humansFile .= 'To:' . PHP_EOL;
+
+                    if( !empty($member['humans_team_name']) ) {
+                        $humansFile .= ' Name: ' . $member['humans_team_name'] . PHP_EOL;
+
+                        if( !empty($member['humans_team_website']) ) {
+                            $humansFile .= ' Site: ' . $member['humans_team_website'] . PHP_EOL;
+                        }
+
+                        if( !empty($member['humans_team_work']) ) {
+                            $humansFile .= ' Work: ' . $member['humans_team_work'] . PHP_EOL;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return Response::make($humansFile)
+                ->header('Content-Type', 'text/plain');
+
+    }
+?>
+==

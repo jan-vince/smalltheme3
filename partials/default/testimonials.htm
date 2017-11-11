@@ -1,0 +1,136 @@
+description = "Testimonials"
+
+[viewBag]
+snippetCode = "testimonials"
+snippetName = "Panel: Ohlasy"
+
+[staticMenu testimonials]
+code = "ohlasy"
+==
+{% if testimonials.menuItems|length %}
+
+    <div class="testimonials">
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <div class="container">
+
+            <!-- Swiper -->
+            <div class="swiper-container testimonials-swiper-container">
+
+
+                <div class="swiper-wrapper">
+
+                    {% for item in testimonials.menuItems %}
+
+                        <div class="swiper-slide slide-{{ (loop.index0) }}">
+
+                            <div class="testimonial-content-container">
+
+                                <div class="testimonial-image-container" style="background-image: url({{ item.viewBag.image|media }});"></div>
+
+                                <div class="testimonial-text-container">
+
+                                    <div class="testimonial-content">{{ item.viewBag.note|nl2br }}</div>
+
+                                    <div class="testimonial-author">{{ item.title }}</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% put scripts %}
+
+        <script src="{{"/assets/vendor/swiper/dist/js/swiper.min.js"|theme}}"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+
+            var swiper;
+            function swiperInit() {
+
+                swiper = new Swiper('.swiper-container', {
+                    navigation: {
+                      nextEl: '.swiper-button-next',
+                      prevEl: '.swiper-button-prev',
+                    },
+        //            pagination: '.swiper-pagination',
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    keyboardControl: true,
+                    paginationClickable: true,
+                    spaceBetween: 0,
+                    loop: true,
+                    autoplay: false,
+                    speed: 900,
+                    preloadImages: false,
+                    lazyLoading: false
+                });
+
+            }
+
+            function setSlideCaption(swiper) {
+                imageTitle = $('.slide-' + getSlideDataIndex(swiper) ).data('title');
+                imageUrl = $('.slide-' + getSlideDataIndex(swiper) ).data('url');
+                imageUrlText = $('.slide-' + getSlideDataIndex(swiper) ).data('url-text');
+
+                $('#slider-caption').text(imageTitle);
+                $('#slider-url').attr("href", imageUrl);
+
+                if(imageUrlText) {
+                    $('#slider-url').text(imageUrlText);
+                } else {
+                    $('#slider-url').text('Více informací');
+                }
+
+            }
+
+            function getSlideDataIndex(swipe){
+                var activeIndex = swipe.activeIndex;
+                var slidesLen = swipe.slides.length;
+                if(swipe.params.loop){
+                    switch(swipe.activeIndex){
+                        case 0:
+                            activeIndex = slidesLen-3;
+                            break;
+                        case slidesLen-1:
+                            activeIndex = 0;
+                            break;
+                        default:
+                            --activeIndex;
+                    }
+                }
+                return  activeIndex;
+            }
+
+            $(document).ready(function () {
+                swiperInit();
+            });
+
+            $('.swiper-button').on('click', function () {
+                swiper.stopAutoplay();
+            });
+
+            $('.more-btn').on('click', function () {
+                $('.more-btn').toggleClass('hidden');
+            });
+
+        </script>
+
+    {% endput %}
+
+{% endif %}

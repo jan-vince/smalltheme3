@@ -1,0 +1,47 @@
+description = "Custom scripts"
+==
+<script> document.documentElement.className += ' js'</script>
+
+<script type="text/javascript"
+    src="{{ [
+                '@jquery',
+                '@framework',
+                '@framework.extras',
+                'assets/vendor/bootstrap/js/alert.js',
+                'assets/vendor/bootstrap/js/button.js',
+                'assets/vendor/bootstrap/js/collapse.js',
+                'assets/vendor/bootstrap/js/transition.js',
+                'assets/js/scripts.js'
+            ]|theme }}.js">
+</script>
+
+{# All Bootstrap 3 Assets
+    'assets/vendor/bootstrap/js/tooltip.js',
+    'assets/vendor/bootstrap/js/transition.js',
+    'assets/vendor/bootstrap/js/affix.js',
+    'assets/vendor/bootstrap/js/alert.js',
+    'assets/vendor/bootstrap/js/button.js',
+    'assets/vendor/bootstrap/js/carousel.js',
+    'assets/vendor/bootstrap/js/collapse.js',
+    'assets/vendor/bootstrap/js/dropdown.js',
+    'assets/vendor/bootstrap/js/modal.js',
+    'assets/vendor/bootstrap/js/popover.js',
+    'assets/vendor/bootstrap/js/scrollspy.js',
+    'assets/vendor/bootstrap/js/tab.js',
+#}
+
+{% if this.theme.schema_generate %}
+    <script type="application/ld+json">
+        {
+        "@context" : "https://schema.org",
+        "@type" : "Organization",
+        "url" : "{{ '/'|app }}",
+        "contactPoint" : [{
+        "@type" : "ContactPoint",
+        "telephone" : "{{ this.theme.schema_phone }}",
+        "email" : "{{ this.theme.schema_email }}",
+        "contactType" : "customer service"
+        }]
+        }
+    </script>
+{% endif %}

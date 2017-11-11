@@ -1,0 +1,24 @@
+/*
+*	Retina images support
+*	https://gist.github.com/brandonb927/3874012
+*	Edited source
+*/
+
+.image-2x(@color, @image, @left, @top, @repeat, @size) {
+    @filename  : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{image})[1]`;
+    @extension : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{image})[2]`;
+    background: @color ~`"url(@{filename}.@{extension})"` @left @top @repeat;
+    background-size: @size;
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background: @color ~`"url(@{filename}@2x.@{extension})"` @left @top @repeat;
+        background-size: @size;
+    }
+}

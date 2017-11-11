@@ -1,0 +1,52 @@
+description = "Mapy.cz"
+==
+
+<div id="map"></div>
+
+{% put scripts%}
+
+    <script type="text/javascript" src="//api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.load();</script>
+
+    <script>
+        /**
+         *	Mapy.cz
+         */
+
+        var center = SMap.Coords.fromWGS84({{ mapLng }}, {{ mapLat }});
+        var m = new SMap(JAK.gel("map"), center, {{ mapZoom }});
+        m.addDefaultLayer(SMap.DEF_BASE).enable();
+        m.addDefaultControls();
+
+        /**
+        *   Disable mouse scroll 
+        */
+        var controls = m.getControls();
+        for (var i=0;i<controls.length;i++) {
+            if (controls[i] instanceof SMap.Control.Mouse) {
+                controls[i].configure(SMap.MOUSE_PAN | SMap.MOUSE_ZOOM);
+            }
+        }
+
+        var c = new SMap.Card();
+        c.setSize(300, 200); /* Šířka, výška */
+
+        c.getHeader().innerHTML = '{% spaceless %}{{ mapContent|replace({"\n":' ', "\r":' '})|raw }}{% endspaceless %}';
+        //c.getFooter().innerHTML = "Toto je zápatí vizitky.";
+
+        c.getBody().style.margin = "5px 0px";
+        c.getBody().style.backgroundColor = "#fff";
+        // c.getBody().innerHTML = "";
+
+        var layer = new SMap.Layer.Marker(); /* Vrstva pro značku */
+        m.addLayer(layer).enable();
+
+        var marker = new SMap.Marker(m.getCenter()); /* Značka s vizitkou uprostřed mapy */
+        marker.decorate(SMap.Marker.Feature.Card, c);
+        layer.addMarker(marker);
+
+
+
+    </script>
+
+{% endput %}

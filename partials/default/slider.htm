@@ -1,0 +1,72 @@
+description = "Swiper slider"
+==
+
+<!-- Swiper -->
+<div class="swiper-container images-slider">
+
+    <div class="swiper-wrapper">
+
+        {% for image in pageSlider %}
+
+            <div class="swiper-slide">
+
+                <img alt="{{ image.pageSliderTitle ? image.pageSliderTitle : 'Fotografie' }}"
+                     class="swiper-image"
+                     src="{{ image.pageSliderImage|mediathumb_resize('height', 800) }}">
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="swiper-button swiper-button-next"></div>
+    <div class="swiper-button swiper-button-prev"></div>
+    <div class="swiper-scrollbar"></div>
+
+</div>
+
+
+{% put scripts %}
+
+    <script src="{{"/assets/vendor/swiper/dist/js/swiper.min.js"|theme}}"></script>
+
+<!-- Initialize Swiper -->
+<script>
+
+var swiper;
+
+$(document).ready(function () {
+
+    swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        scrollbar: '.swiper-scrollbar',
+        direction: 'horizontal',
+        mousewheelControl: true,
+        freeMode: true,
+        mousewheelForceToAxis: true,
+        scrollbarHide: false,
+        scrollbarDraggable: true,
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        spaceBetween: 10,
+        grabCursor: true,
+        keyboardControl: false,
+        paginationClickable: true,
+        loop: false,
+        speed: 800,
+        autoplay: false
+    });
+
+});
+
+
+$(window).on("load", function () {
+    swiper.update();
+});
+
+</script>
+
+{% endput %}

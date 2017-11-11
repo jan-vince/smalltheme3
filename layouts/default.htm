@@ -1,0 +1,74 @@
+description = "Default layout"
+
+[staticPage]
+useContent = true
+default = true
+childLayout = "default"
+==
+<?php
+
+    function onStart() {
+
+        $this['locale'] = App::getLocale();
+
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : 'en' }}">
+
+    {% put styles %}
+
+        <link rel="stylesheet"
+                href="{{ ['assets/css/default.less'] |theme }}.css">
+
+    {% endput %}
+
+    {% partial "default/head" %}
+
+    <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
+
+        {% if showHeader %}
+            {% partial "default/header" %}
+        {% endif %}
+
+        {% if showBanner %}
+            {% partial "default/banner" %}
+        {% endif %}
+
+        {% page %}
+
+        {% if showTestimonials %}
+            {% partial "default/testimonials" %}
+        {% endif %}
+
+        {% if showCTA %}
+            {% partial "default/cta" %}
+        {% endif %}
+
+        {% if showFooter %}
+            {% partial "default/footer" %}
+        {% endif %}
+
+        {% partial "default/scripts" %}
+
+        {% scripts %}
+
+    </body>
+
+    <!--
+
+    {variable tab="Banner" type="checkbox" name="showBanner" label="Zobrazit banner" span="full" default="false"}{/variable} 
+    {variable tab="Banner" type="text" name="bannerTitle" label="Nadpis" span="full"}{/variable} 
+    {variable tab="Banner" type="richeditor" name="bannerContent" label="Obsah" span="full"}{/variable} 
+
+    {variable tab="Volby" type="checkbox" name="showHeader" label="Zobrazit hlavičku" span="full" default="false"}{/variable} 
+    {variable tab="Volby" type="checkbox" name="showTestimonials" label="Zobrazit panel ohlasů/referencí" span="full" default="false"}{/variable} 
+    {variable tab="Volby" type="checkbox" name="showCTA" label="Zobrazit panel CTA (výzva k akci)" span="left" default="false"}{/variable} 
+    {variable tab="Volby" type="checkbox" name="showCTALine" label="Zobrazit linku nad panelem CTA" span="right" default="false"}{/variable} 
+    {variable tab="Volby" type="checkbox" name="showFooter" label="Zobrazit patičku" span="left" default="false"}{/variable} 
+
+    -->
+
+</html>

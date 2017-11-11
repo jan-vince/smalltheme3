@@ -1,0 +1,28 @@
+description = "Footer"
+
+[viewBag]
+==
+<div class="container">
+
+    <footer id="footer" class="footer">
+
+        {% if this.theme.footer_logo_file %}
+
+            <a class="brand" href="{{ '/'|app }}">
+
+                <img src="{{ this.theme.footer_logo_file|media }}"
+                    alt="{{ this.theme.site_name }}"
+                    width="{{ this.theme.footer_logo_file_width }}"
+                    height="{{ this.theme.footer_logo_file_height }}">
+
+            </a>
+
+        {% else %}
+
+            <span>Footer</span>
+
+        {% endif %}
+
+    </footer>
+
+</div>

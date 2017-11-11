@@ -1,0 +1,269 @@
+name: 'SmallTheme 3'
+description: 'Simple Bootstrap 3 starter theme for OctoberCMS'
+author: 'Jan Vince'
+homepage: 'https://www.vince.cz'
+code: smalltheme-3
+form:
+    fields:
+        section_info:
+            label: 'Basic information'
+            type: section
+        site_name:
+            label: 'Site name'
+            commend: 'Will be used for <meta> tag.'
+            default: ''
+            span: left
+        author:
+            label: Author
+            comment: 'If set, will be used for <meta> tag.'
+            default: ''
+            span: right
+    tabs:
+        fields:
+            header_logo_file:
+                label: 'Header logo'
+                comment: 'Logo file for header'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Branding
+
+            header_logo_file_width:
+                label: 'Width'
+                tab: Branding
+                span: right
+                tab: Branding
+
+            header_logo_file_height:
+                label: 'Height'
+                tab: Branding
+                span: right
+                tab: Branding
+
+            section_logo:
+                type: section
+                tab: Branding
+
+            footer_logo_file:
+                label: 'Footer logo'
+                comment: 'Logo file for footer'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Branding
+
+            footer_logo_file_width:
+                label: 'Width'
+                tab: Branding
+                span: right
+                tab: Branding
+
+            footer_logo_file_height:
+                label: 'Height'
+                tab: Branding
+                span: right
+                tab: Branding
+
+
+            css_section_colors:
+                label: Colors
+                type: section
+                tab: CSS
+
+            css_oc_brand_primary:
+                label: Brand primary color
+                comment: '@brand-primary, @primary'
+                type: text
+                span: left
+                assetVar: 'oc-brand-primary'
+                default: '#40A9BF'
+                tab: CSS
+
+            css_oc_brand_secondary:
+                label: Brand secondary color
+                comment: '@secondary'
+                type: text
+                span: right
+                assetVar: 'oc-brand-secondary'
+                default: '#4B4B4B'
+                tab: CSS
+
+            css_oc_body_bg:
+                label: Background color
+                comment: '@body-bg'
+                type: text
+                span: left
+                assetVar: 'oc-body-bg'
+                default: '#ffffff'
+                tab: CSS
+
+            css_oc_text_color:
+                label: Text color
+                comment: '@text-color'
+                type: text
+                span: left
+                assetVar: 'oc-text-color'
+                default: '#494A4E'
+                tab: CSS
+
+            css_oc_headings_color:
+                label: Headings color
+                comment: '@headings-color'
+                type: text
+                span: right
+                assetVar: 'oc-headings-color'
+                default: '#000000'
+                tab: CSS
+
+            css_oc_link_color:
+                label: Link color
+                comment: '@link-color'
+                type: text
+                span: left
+                assetVar: 'oc-link-color'
+                default: '#40A9BF'
+                tab: CSS
+
+            css_oc_link_color_hover:
+                label: Link color - hover
+                comment: '@link-color-hover'
+                type: text
+                span: right
+                assetVar: 'oc-link-color-hover'
+                default: '#40A9BF'
+                tab: CSS
+
+            css_oc_link_color_visited:
+                label: Link color - visited
+                comment: '@link-color-visited'
+                type: text
+                span: left
+                assetVar: 'oc-link-color-visited'
+                default: '#A440BF'
+                tab: CSS
+
+            css_section_fonts:
+                label: Fonts
+                type: section
+                tab: CSS
+
+            css_font-size-base:
+                label: Base font size
+                comment: '@font-size-base'
+                type: text
+                span: left
+                assetVar: 'oc-font-size-base'
+                default: '15px'
+                tab: CSS
+
+            site_title_prefix:
+                label: 'Page title prefix'
+                comment: 'Will be added BEFORE page title'
+                default: ''
+                span: left
+                tab: SEO
+            site_title_separator:
+                label: 'Prefix/Suffix seprator'
+                comment: 'Will be added BETWEEN page title and prefix/suffix'
+                default: '|'
+                span: left
+                tab: SEO
+            site_title_suffix:
+                label: 'Page title suffix'
+                comment: 'Will be added AFTER page title'
+                default: ''
+                span: left
+                tab: SEO
+            site_title_simple_home:
+                label: 'Disable prefix/suffix on Home page'
+                comment: 'Will not show prefix/suffix on Home page'
+                default: true
+                type: checkbox
+                span: left
+                tab: SEO
+
+            google_ua_id:
+                label: 'Google UA tracking ID'
+                comment: 'If set, UA tracking code will be included in all pages.'
+                default: ''
+                tab: Analytics
+
+            schema_generate:
+                label: 'Generate Schema.org info'
+                comment: 'Will add schema.org data'
+                default: false
+                type: switch
+                tab: Schema.org
+            schema_url:
+                label: 'URL address'
+                comment: 'Organization:Url'
+                default: 'http://'
+                tab: Schema.org
+            schema_phone:
+                label: Phone
+                comment: 'ContactPoint:Phone'
+                default: ''
+                span: left
+                tab: Schema.org
+            schema_email:
+                label: Email
+                comment: 'ContactPoint:Email'
+                default: ''
+                span: right
+                tab: Schema.org
+
+            humans_allow:
+                label: 'Allow humans.txt file'
+                comment: 'If set create /humans.txt page'
+                default: false
+                type: checkbox
+                span: left
+                tab: humans.txt
+
+            humans_team:
+                label: 'TEAM'
+                prompt: 'Add team member'
+                type: repeater
+                span: full
+                tab: humans.txt
+                form:
+                    fields:
+                        humans_team_name:
+                            label: Name
+                            type: text
+                            span: left
+                        humans_team_website:
+                            label: Website or contact
+                            type: text
+                            span: right
+                        humans_team_work:
+                            label: Work
+                            type: text
+                            size: small
+                            span: full
+
+            humans_thanks:
+                label: 'THANKS TO'
+                prompt: 'Add a person, you want to thanks to'
+                type: repeater
+                span: full
+                tab: humans.txt
+                form:
+                    fields:
+                        humans_team_name:
+                            label: Name
+                            type: text
+                            span: left
+                        humans_team_website:
+                            label: Website or contact
+                            type: text
+                            span: right
+                        humans_team_work:
+                            label: Work
+                            type: text
+                            size: small
+                            span: full
+
+
+require:
+    - Railab.Pages

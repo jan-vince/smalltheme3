@@ -1,0 +1,83 @@
+description = "Error layout"
+==
+<?php
+
+    function onInit(){
+        $this['locale'] = App::getLocale();
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : 'en' }}">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ this.page.meta_title ? this.page.meta_title : this.page.title }}</title>
+
+        <style>
+
+            html {
+                padding: 0;
+            }
+
+            body {
+                font-family: serif;
+                padding: 0;
+                text-align: center;
+            }
+
+            .error-container {
+                border-radius: 10px;
+
+                padding: 40px 60px;
+
+                display: inline-block;
+                min-width: 300px;
+
+                margin: 80px auto;
+
+                padding-right: 140px;
+
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 48px;
+                margin: 0 0 10px 0;
+                font-family: serif;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            a {
+                display: block;
+                padding-top: 30px;
+            }
+
+        </style>
+
+        {% if this.environment != 'dev' %}
+
+            {% partial 'default/analytics' %}
+
+        {% endif %}
+
+    </head>
+
+    <body id="{{ this.page.id }}">
+
+        <div class="error-container">
+
+            {% page %}
+
+        </div>
+
+    </body>
+
+</html>

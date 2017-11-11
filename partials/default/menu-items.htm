@@ -1,0 +1,20 @@
+description = "Static menu items"
+[viewBag]
+==
+<ul class="{{ class }}">
+    {% for item in items if not item.viewBag.isHidden %}
+		<li class="{{ item.code}} {{ item.isActive or item.isChildActive ? 'active' : '' }} {{ item.items ? 'dropdown' : '' }}">
+            <a href="{{ item.url }}"
+				{{ item.viewBag.isExternal ? 'target="_blank"'}}>
+				{% if item.code == 'social' %}
+					<span class="{{ item.viewBag.cssClass }}"></span>
+				{% else %}
+					{{ item.title }}
+				{% endif %}
+            </a>
+        </li>
+    {% endfor %}
+
+	{% if not items %}<li><em class="navbar-text text-muted">No menu items found.</em></li>{% endif %}
+
+</ul>

@@ -1,0 +1,29 @@
+name: 'Main menu'
+items:
+    -
+        title: Home
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: About
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: Contact
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
