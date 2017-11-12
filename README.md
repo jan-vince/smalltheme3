@@ -77,7 +77,7 @@ To update vendor files, run command in terminal (in theme root folder): ```bower
 
 ----
 
-> Thanks to:
+> Thanks to:    
 > [OctoberCMS](http://www.octobercms.com) team members and supporters for this great system.    
 > [Ronald Cuyan](https://unsplash.com/@ronaldcuyan) for his photo I have used in the theme preview.    
 > [Font Awesome](http://www.fontawesome.io) for great icons.
