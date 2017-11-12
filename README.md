@@ -57,11 +57,9 @@ There is a bootstrap sandbox page ready in ```/pages/default/bootstrap``` that c
 
 ### Static Pages (plugin)
 
-There is a default Static page ready that uses default layout and custom fields and is accessible by URL: ```/default```.
+There is a default Static page ready that uses default layout and custom fields and is accessible by URL: ```/```.
 
 In backend (with Static pages plugin installed) you can 'build' your layout with some of preinstalled parts (partials) like Header, Banner, CTA, Footer, ...
-
-*This page is set as hidden and is accessible only when you are logged in to backend.*
 
 ## Misc
 
