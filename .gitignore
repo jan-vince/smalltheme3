@@ -1,16 +1,14 @@
 ####
 ##  ASSETS
 
-/assets/css/*
-!/assets/css/default/*
-!/assets/css/default.less
 /assets/css/custom/*
+/assets/css/custom.less
 !/assets/css/custom/.gitignore
 
 /assets/images/*
 !/assets/images/.gitignore
 
-!/assets/js/*
+/assets/js/*
 !/assets/js/default.js
 
 /assets/vendor/*
