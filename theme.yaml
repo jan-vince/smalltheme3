@@ -1,8 +1,8 @@
-name: 'SmallTheme 3'
-description: 'Simple Bootstrap 3 starter theme for OctoberCMS'
+name: Small Theme 3
+description: ''
 author: 'Jan Vince'
 homepage: 'https://www.vince.cz'
-code: 'smalltheme-3'
+code: smalltheme-3
 form:
     fields:
         section_info:
@@ -27,23 +27,17 @@ form:
                 mode: image
                 span: left
                 tab: Branding
-
             header_logo_file_width:
-                label: 'Width'
+                label: Width
                 tab: Branding
                 span: right
-                tab: Branding
-
             header_logo_file_height:
-                label: 'Height'
+                label: Height
                 tab: Branding
                 span: right
-                tab: Branding
-
             section_logo:
                 type: section
                 tab: Branding
-
             footer_logo_file:
                 label: 'Footer logo'
                 comment: 'Logo file for footer'
@@ -51,138 +45,118 @@ form:
                 mode: image
                 span: left
                 tab: Branding
-
             footer_logo_file_width:
-                label: 'Width'
+                label: Width
                 tab: Branding
                 span: right
-                tab: Branding
-
             footer_logo_file_height:
-                label: 'Height'
+                label: Height
                 tab: Branding
                 span: right
-                tab: Branding
-
-
             css_section_colors:
                 label: Colors
                 type: section
                 tab: CSS
-
             css_oc_brand_primary:
-                label: Brand primary color
+                label: 'Brand primary color'
                 comment: '@brand-primary, @primary'
                 type: text
                 span: left
-                assetVar: 'oc-brand-primary'
+                assetVar: oc-brand-primary
                 default: '#40A9BF'
                 tab: CSS
-
             css_oc_brand_secondary:
-                label: Brand secondary color
+                label: 'Brand secondary color'
                 comment: '@secondary'
                 type: text
                 span: right
-                assetVar: 'oc-brand-secondary'
+                assetVar: oc-brand-secondary
                 default: '#4B4B4B'
                 tab: CSS
-
             css_oc_body_bg:
-                label: Background color
+                label: 'Background color'
                 comment: '@body-bg'
                 type: text
                 span: left
-                assetVar: 'oc-body-bg'
+                assetVar: oc-body-bg
                 default: '#ffffff'
                 tab: CSS
-
             css_oc_text_color:
-                label: Text color
+                label: 'Text color'
                 comment: '@text-color'
                 type: text
                 span: left
-                assetVar: 'oc-text-color'
+                assetVar: oc-text-color
                 default: '#494A4E'
                 tab: CSS
-
             css_oc_headings_color:
-                label: Headings color
+                label: 'Headings color'
                 comment: '@headings-color'
                 type: text
                 span: right
-                assetVar: 'oc-headings-color'
+                assetVar: oc-headings-color
                 default: '#000000'
                 tab: CSS
-
             css_oc_link_color:
-                label: Link color
+                label: 'Link color'
                 comment: '@link-color'
                 type: text
                 span: left
-                assetVar: 'oc-link-color'
+                assetVar: oc-link-color
                 default: '#40A9BF'
                 tab: CSS
-
             css_oc_link_color_hover:
-                label: Link color - hover
+                label: 'Link color - hover'
                 comment: '@link-color-hover'
                 type: text
                 span: right
-                assetVar: 'oc-link-color-hover'
+                assetVar: oc-link-color-hover
                 default: '#40A9BF'
                 tab: CSS
-
             css_oc_link_color_visited:
-                label: Link color - visited
+                label: 'Link color - visited'
                 comment: '@link-color-visited'
                 type: text
                 span: left
-                assetVar: 'oc-link-color-visited'
+                assetVar: oc-link-color-visited
                 default: '#A440BF'
                 tab: CSS
-
             css_section_fonts:
                 label: Fonts
                 type: section
                 tab: CSS
-
             css_font_size_base:
                 label: 'Base font size (with unit symbol, eg.: 15px, 1.5rem, 2em)'
                 comment: '@font-size-base'
                 type: text
                 span: left
-                assetVar: 'oc-font-size-base'
-                default: '15px'
+                assetVar: oc-font-size-base
+                default: 15px
                 tab: CSS
-
             css_font_family_sans_serif:
-                label: Font family sans serif
+                label: 'Font family sans serif'
                 comment: '@font-family-sans-serif'
                 type: text
                 span: left
-                assetVar: 'oc-font-family-sans-serif'
+                assetVar: oc-font-family-sans-serif
                 default: 'Arial, sans-serif'
                 tab: CSS
-
             css_font_family_serif:
-                label: Font family serif
+                label: 'Font family serif'
                 comment: '@font-family-serif'
                 type: text
                 span: right
-                assetVar: 'oc-font-family-serif'
+                assetVar: oc-font-family-serif
                 default: 'Times New Roman, serif'
                 tab: CSS
-
             css_font_family_monospace:
-                label: Font family monospace
+                label: 'Font family monospace'
                 comment: '@font-family-monospace'
                 type: text
                 span: left
-                assetVar: 'oc-font-family-monospace'
+                assetVar: oc-font-family-monospace
                 default: 'Courier New, monospace'
                 tab: CSS
-
             site_title_prefix:
                 label: 'Page title prefix'
                 comment: 'Will be added BEFORE page title'
@@ -208,13 +182,11 @@ form:
                 type: checkbox
                 span: left
                 tab: SEO
-
             google_ua_id:
                 label: 'Google UA tracking ID'
                 comment: 'If set, UA tracking code will be included in all pages.'
                 default: ''
                 tab: Analytics
-
             schema_generate:
                 label: 'Generate Schema.org info'
                 comment: 'Will add schema.org data'
@@ -238,7 +210,6 @@ form:
                 default: ''
                 span: right
                 tab: Schema.org
-
             humans_allow:
                 label: 'Allow humans.txt file'
                 comment: 'If set create /humans.txt page'
@@ -246,9 +217,8 @@ form:
                 type: checkbox
                 span: left
                 tab: humans.txt
-
             humans_team:
-                label: 'TEAM'
+                label: TEAM
                 prompt: 'Add team member'
                 type: repeater
                 span: full
@@ -260,7 +230,7 @@ form:
                             type: text
                             span: left
                         humans_team_website:
-                            label: Website or contact
+                            label: 'Website or contact'
                             type: text
                             span: right
                         humans_team_work:
@@ -268,7 +238,6 @@ form:
                             type: text
                             size: small
                             span: full
-
             humans_thanks:
                 label: 'THANKS TO'
                 prompt: 'Add a person, you want to thanks to'
@@ -282,7 +251,7 @@ form:
                             type: text
                             span: left
                         humans_team_website:
-                            label: Website or contact
+                            label: 'Website or contact'
                             type: text
                             span: right
                         humans_team_work:
@@ -290,7 +259,5 @@ form:
                             type: text
                             size: small
                             span: full
-
-
 require:
     - Railab.Pages
