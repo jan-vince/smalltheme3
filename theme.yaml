@@ -2,7 +2,7 @@ name: 'SmallTheme 3'
 description: 'Simple Bootstrap 3 starter theme for OctoberCMS'
 author: 'Jan Vince'
 homepage: 'https://www.vince.cz'
-code: smalltheme-3
+code: 'smalltheme-3'
 form:
     fields:
         section_info:
@@ -147,13 +147,40 @@ form:
                 type: section
                 tab: CSS
 
-            css_font-size-base:
-                label: Base font size
+            css_font_size_base:
+                label: 'Base font size (with unit symbol, eg.: 15px, 1.5rem, 2em)'
                 comment: '@font-size-base'
                 type: text
                 span: left
                 assetVar: 'oc-font-size-base'
                 default: '15px'
+                tab: CSS
+
+            css_font_family_sans_serif:
+                label: Font family sans serif
+                comment: '@font-family-sans-serif'
+                type: text
+                span: left
+                assetVar: 'oc-font-family-sans-serif'
+                default: 'Arial, sans-serif'
+                tab: CSS
+
+            css_font_family_serif:
+                label: Font family serif
+                comment: '@font-family-serif'
+                type: text
+                span: right
+                assetVar: 'oc-font-family-serif'
+                default: 'Times New Roman, serif'
+                tab: CSS
+
+            css_font_family_monospace:
+                label: Font family monospace
+                comment: '@font-family-monospace'
+                type: text
+                span: left
+                assetVar: 'oc-font-family-monospace'
+                default: 'Courier New, monospace'
                 tab: CSS
 
             site_title_prefix:
