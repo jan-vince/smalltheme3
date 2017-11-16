@@ -7,12 +7,21 @@
 /assets/css/custom/*
 !/assets/css/custom/.gitignore
 
-/assets/css/images/*
-!/assets/css/default/.gitignore
+/assets/images/*
+!/assets/images/.gitignore
 
 !/assets/js/*
 !/assets/js/default.js
-!/assets/vendor/*
+
+/assets/vendor/*
+!/assets/vendor/bootstrap/*
+!/assets/vendor/font-awesome/*
+!/assets/vendor/html5shiv/*
+!/assets/vendor/jquery/*
+!/assets/vendor/lightcase/*
+!/assets/vendor/respond/*
+!/assets/vendor/swiper/*
+
 
 ####
 ##  CONTENT
