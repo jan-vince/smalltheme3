@@ -66,13 +66,13 @@ There are some default CSS/LESS, JavaScript and OctoberCMS files ready to be use
 
 > Default layout file (```/layouts/default.html```) uses LESS styles defined in ```/assets/css/default.less```.    
 
-1. Duplicate file ````/assets/css/default.less```` to eg. ````/assets/css/styles.less````.
+1. Duplicate file ````/assets/css/default.less```` to eg. ````/assets/css/custom.less````.
 
 2. Duplicate ````/layouts/default.htm```` file to eg. ````/layout/page.htm```` and update combiner part:
 ```
 {% put stylesheet %}
     <link rel="stylesheet"
-            href="{{ ['assets/css/styles.less']|theme }}.css">
+            href="{{ ['assets/css/custom.less']|theme }}.css">
 {% endput %}
 ```
 
