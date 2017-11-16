@@ -1,1 +1,54 @@
+####
+##  ASSETS
+
+/assets/css/*
+!/assets/css/default/*
+!/assets/css/default.less
+/assets/css/custom/*
+!/assets/css/custom/.gitignore
+
+/assets/css/images/*
+!/assets/css/default/.gitignore
+
+!/assets/js/*
+!/assets/js/default.js
+!/assets/vendor/*
+
+####
+##  CONTENT
+
+/content/*
+!/content/.gitignore
+
+####
+##  LAYOUTS
+
+/layouts/*
+!/layouts/default.htm
+!/layouts/error.htm
+
+####
+##  META
+
+/meta/*
+!/meta/.gitignore
+
+####
+##  PAGES
+
+/pages/*
+!/pages/default/*
+
+####
+##  PARTIALS
+
+/partials/*
+!/partials/default/*
+/partials/custom/*
+!/partials/custom/.gitignore
+
+
+####
+##  OTHER
+
 .DS_Store
