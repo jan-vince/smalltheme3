@@ -1,9 +1,11 @@
 ####
 ##  ASSETS
 
-/assets/css/custom/*
-/assets/css/custom.less
+/assets/*
+/assets/css/*
 !/assets/css/custom/.gitignore
+!/assets/css/default.less
+!/assets/css/default/*
 
 /assets/images/*
 !/assets/images/.gitignore
@@ -11,7 +13,7 @@
 /assets/js/*
 !/assets/js/default.js
 
-/assets/vendor/*
+!/assets/vendor/.gitignore
 !/assets/vendor/bootstrap/*
 !/assets/vendor/font-awesome/*
 !/assets/vendor/html5shiv/*
