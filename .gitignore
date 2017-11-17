@@ -1,7 +1,6 @@
 ####
 ##  ASSETS
 
-/assets/*
 /assets/css/*
 !/assets/css/custom/.gitignore
 !/assets/css/default.less
@@ -51,7 +50,6 @@
 ####
 ##  PARTIALS
 
-/partials/*
 !/partials/default/*
 /partials/custom/*
 !/partials/custom/.gitignore
