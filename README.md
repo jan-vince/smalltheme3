@@ -60,7 +60,7 @@ There are some default CSS/LESS, JavaScript and OctoberCMS files ready to be use
 
 2. Create ````/assets/images/theme-preview.png```` image as it is used as a preview in OctoberCMS backend and also as default preview image for sharing in Facebook or Twitted.
 
-3. Put your own ````favicon.png```` and ````favicon.ico```` into directory ````/assets````.
+3. Put your own ````favicon.png```` and ````favicon.ico```` into directory ````/assets/images````.
 
 ### CSS styles
 
