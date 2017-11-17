@@ -4,7 +4,7 @@
 /assets/css/*
 !/assets/css/custom/.gitignore
 !/assets/css/default.less
-!/assets/css/default/*
+!/assets/css/default
 
 /assets/images/*
 !/assets/images/.gitignore
@@ -45,12 +45,12 @@
 ##  PAGES
 
 /pages/*
-!/pages/default/*
+!/pages/default
 
 ####
 ##  PARTIALS
 
-!/partials/default/*
+!/partials/default
 /partials/custom/*
 !/partials/custom/.gitignore
 
