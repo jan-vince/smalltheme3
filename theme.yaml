@@ -261,3 +261,4 @@ form:
                             span: full
 require:
     - Railab.Pages
+    - JanVince.SmallExtensions
