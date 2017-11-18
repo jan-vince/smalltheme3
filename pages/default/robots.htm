@@ -1,0 +1,41 @@
+title = "robots"
+url = "/robots.txt"
+is_hidden = 0
+==
+<?php
+
+use System\Classes\PluginManager;
+
+function onStart(){
+
+    $content = "User-agent: *\nDisallow:";
+
+    if( $this->theme->robots_allow ) {
+
+        if( trim($this->theme->robots_content) ) {
+
+            $content = $this->theme->robots_content;
+
+        }
+
+    	$theme = Cms\Classes\Theme::getEditTheme();
+    	$sitemapFile = $theme->getDirName() . '/assets/sitemap.xml';
+
+    	if(file_exists(themes_path($sitemapFile))){
+    		$content .= "\nSitemap: " . url(config('cms.themesPath', 'themes') .'/' . $sitemapFile);
+    	}
+
+        // Sitemap by plugin?
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Sitemap');
+
+        if ($pluginManager && !$pluginManager->disabled) {
+            $content .= "\nSitemap: " . url('/sitemap.xml');
+        }
+
+    }
+
+    return Response::make($content)->header('Content-Type', 'text/plain');
+
+}
+?>
+==

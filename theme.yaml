@@ -232,7 +232,7 @@ form:
                 tab: Schema.org
             humans_allow:
                 label: 'Allow humans.txt file'
-                comment: 'If set create /humans.txt page'
+                comment: 'If set, /humans.txt page will be enabled'
                 default: false
                 type: checkbox
                 span: left
@@ -279,6 +279,26 @@ form:
                             type: text
                             size: small
                             span: full
+
+            robots_allow:
+                label: 'Allow robots.txt file'
+                comment: 'If set, /robots.txt page will be enabled'
+                default: true
+                type: checkbox
+                span: left
+                tab: robots.txt
+
+            robots_content:
+                label: 'Content of robots.txt file'
+                commentAbove: 'One definition per line with format like: <br><br>User-agent: *<br>Disallow:'
+                commentHtml: true
+                type: textarea
+                span: full
+                size: huge
+                tab: robots.txt
+
+
+
 require:
     - Railab.Pages
     - JanVince.SmallExtensions
