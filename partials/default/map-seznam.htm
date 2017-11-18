@@ -19,7 +19,7 @@ description = "Mapy.cz"
         m.addDefaultControls();
 
         /**
-        *   Disable mouse scroll 
+        *   Disable mouse scroll
         */
         var controls = m.getControls();
         for (var i=0;i<controls.length;i++) {
@@ -28,23 +28,29 @@ description = "Mapy.cz"
             }
         }
 
-        var c = new SMap.Card();
-        c.setSize(300, 200); /* Šířka, výška */
+        {% if mapPins|length %}
 
-        c.getHeader().innerHTML = '{% spaceless %}{{ mapContent|replace({"\n":' ', "\r":' '})|raw }}{% endspaceless %}';
-        //c.getFooter().innerHTML = "Toto je zápatí vizitky.";
 
-        c.getBody().style.margin = "5px 0px";
-        c.getBody().style.backgroundColor = "#fff";
-        // c.getBody().innerHTML = "";
+            {% for pin in mapPins if (pin.mapPinLng and pin.mapPinLat) %}
 
-        var layer = new SMap.Layer.Marker(); /* Vrstva pro značku */
-        m.addLayer(layer).enable();
+                var c = new SMap.Card();
+                c.setSize(300, 200); /* Šířka, výška */
 
-        var marker = new SMap.Marker(m.getCenter()); /* Značka s vizitkou uprostřed mapy */
-        marker.decorate(SMap.Marker.Feature.Card, c);
-        layer.addMarker(marker);
+                c.getHeader().innerHTML = '{% spaceless %}<small>{{ pin.mapPinContent|replace({"\n":' ', "\r":' '})|raw }}</small>{% endspaceless %}';
 
+                c.getBody().style.margin = "5px 0px";
+                c.getBody().style.backgroundColor = "#fff";
+
+                var layer = new SMap.Layer.Marker();
+                m.addLayer(layer).enable();
+
+                var marker = new SMap.Marker( SMap.Coords.fromWGS84({{ pin.mapPinLng }}, {{ pin.mapPinLat }}) );
+                marker.decorate(SMap.Marker.Feature.Card, c);
+                layer.addMarker(marker);
+
+            {% endfor %}
+
+        {% endif %}
 
 
     </script>

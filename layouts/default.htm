@@ -63,6 +63,18 @@ childLayout = "default"
     {variable tab="Banner" type="text" name="bannerTitle" label="Nadpis" span="full"}{/variable} 
     {variable tab="Banner" type="richeditor" name="bannerContent" label="Obsah" span="full"}{/variable} 
 
+    {variable tab="Mapa" type="section" label="Střed mapy a přiblížení" span="full"}
+    {variable tab="Mapa" type="text" name="mapLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable} 
+    {variable tab="Mapa" type="text" name="mapLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable} 
+    {variable tab="Mapa" type="text" name="mapZoom" label="Přiblížení" span="full" comment="Číslo 1-20"}{/variable} 
+
+    {repeater tab="Mapa" name="mapPins" prompt="Přidat bod na mapu" label="Body na mapě"}
+        {variable tab="Mapa" type="text" name="mapPinTitle" label="Název bodu" span="full"}{/variable} 
+        {variable tab="Mapa" type="text" name="mapPinLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable} 
+        {variable tab="Mapa" type="text" name="mapPinLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable} 
+        {variable type="richeditor" name="mapPinContent" label="Text u připínáčku v mapě" span="full" commentAbove="Text se zobrazí po klepnutí na symbol připínáčku v mapě"}{/variable} 
+    {/repeater}
+
     {variable tab="Volby" type="checkbox" name="showHeader" label="Zobrazit hlavičku" span="full" default="false"}{/variable} 
     {variable tab="Volby" type="checkbox" name="showTestimonials" label="Zobrazit panel ohlasů/referencí" span="full" default="false"}{/variable} 
     {variable tab="Volby" type="checkbox" name="showCTA" label="Zobrazit panel CTA (výzva k akci)" span="left" default="false"}{/variable} 
