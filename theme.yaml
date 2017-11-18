@@ -157,6 +157,26 @@ form:
                 assetVar: oc-font-family-monospace
                 default: 'Courier New, monospace'
                 tab: CSS
+
+            css_base_line_height:
+                label: 'Base line height'
+                comment: '@base-line-height'
+                type: text
+                span: left
+                assetVar: oc-base-line-height
+                default: '1.7'
+                tab: CSS
+
+            css_headings_line_height:
+                label: 'Headings line height'
+                comment: '@headings-line-height'
+                type: text
+                span: right
+                assetVar: oc-headings-line-height
+                default: '1.2'
+                tab: CSS
+
+
             site_title_prefix:
                 label: 'Page title prefix'
                 comment: 'Will be added BEFORE page title'
