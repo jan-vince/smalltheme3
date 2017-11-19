@@ -32,8 +32,8 @@
 ##  LAYOUTS
 
 /layouts/*
-!/layouts/default.htm
-!/layouts/error.htm
+!/layouts/default
+!/layouts/custom/.gitignore
 
 ####
 ##  META
