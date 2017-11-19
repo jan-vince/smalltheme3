@@ -31,8 +31,8 @@
 ####
 ##  LAYOUTS
 
-/layouts/*
 !/layouts/default
+/layouts/custom/*
 !/layouts/custom/.gitignore
 
 ####
