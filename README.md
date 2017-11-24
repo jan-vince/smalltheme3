@@ -90,11 +90,6 @@ There is a default JS combiner setup in  ```/partials/default/scripts.htm```.
 
 There is a default layout file in ```/layouts/default/layout.htm``` that has some logic implemented (and Custom fields templates for Rainlab Static Pages plugin).
 
-### Pages
-
-There is a bootstrap sandbox page ready in ```/pages/default/bootstrap``` that can be accessed by URL: ```/default/bootstrap```.
-
-*This page is set as hidden and is accessible only when you are logged in to backend.*
 
 ### Static Pages (plugin)
 

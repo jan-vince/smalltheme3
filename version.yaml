@@ -2,3 +2,4 @@
 1.0.1: Added font-family to CSS tab os theme settings. Updated vendor files.
 1.0.2: Added gitignore to most of custom parts. Deleted unnecessary assets.
 1.0.3: Added JanVince.SmallExtensions plugin as required. Added translations twig filters to /404 and /error pages.
+1.0.4: Removed Bootstrap sandbox
