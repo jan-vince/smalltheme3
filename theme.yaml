@@ -147,7 +147,7 @@ form:
                 type: text
                 span: right
                 assetVar: oc-font-family-serif
-                default: 'Times New Roman, serif'
+                default: '"Times New Roman", serif'
                 tab: CSS
             css_font_family_monospace:
                 label: 'Font family monospace'
