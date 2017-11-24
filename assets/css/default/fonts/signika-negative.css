@@ -3,24 +3,24 @@
   font-family: 'Signika Negative Local';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
+  src: url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
   src: local('Signika Negative Local Regular'), local('SignikaNegative-Local-Regular'),
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.svg#SignikaNegative') format('svg'); /* Legacy iOS */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-regular.svg#SignikaNegative') format('svg'); /* Legacy iOS */
 }
 /* signika-negative-700 - latin_latin-ext */
 @font-face {
   font-family: 'Signika Negative Local';
   font-style: normal;
   font-weight: 700;
-  src: url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.eot'); /* IE9 Compat Modes */
+  src: url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.eot'); /* IE9 Compat Modes */
   src: local('Signika Negative Local Bold'), local('SignikaNegative-Local-Bold'),
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.woff') format('woff'), /* Modern Browsers */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.svg#SignikaNegative') format('svg'); /* Legacy iOS */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.woff') format('woff'), /* Modern Browsers */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('default/fonts/signika-negative-v6-latin_latin-ext/signika-negative-v6-latin_latin-ext-700.svg#SignikaNegative') format('svg'); /* Legacy iOS */
 }
