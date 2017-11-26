@@ -33,7 +33,7 @@ description = "Mapy.cz"
 
             {% for pin in mapPins if (pin.mapPinLng and pin.mapPinLat) %}
 
-                var c = new SMap.Card();
+                var c = new SMap.Card(null, { anchor: { left: 0, top: -35 } });
                 c.setSize(300, 200); /* Šířka, výška */
 
                 c.getHeader().innerHTML = '{% spaceless %}<small>{{ pin.mapPinContent|replace({"\n":' ', "\r":' '})|raw }}</small>{% endspaceless %}';
