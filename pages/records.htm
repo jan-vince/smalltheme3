@@ -1,0 +1,30 @@
+title = "Records"
+url = "/records/:tag?/:category?"
+is_hidden = 0
+
+[records]
+areaSlug = "books"
+categorySlug = "{{ :category }}"
+tagSlug = "{{ :tag }}"
+activeOnly = 1
+allowLimit = 0
+limit = 2
+detailPageSlug = "record-detail"
+orderBy = "date"
+orderByDirection = "DESC"
+
+[categories]
+areaSlug = 0
+categorySlug = "{{ :category }}"
+activeOnly = 1
+rootOnly = 0
+==
+<h2>Records</h2>
+
+{% component 'records' %}
+
+<hr>
+
+<h2>Categories</h2>
+
+{% component 'categories' %}
