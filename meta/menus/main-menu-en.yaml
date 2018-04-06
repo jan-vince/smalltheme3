@@ -1,0 +1,14 @@
+name: 'Main menu (en)'
+items:
+    -
+        title: Pages
+        type: all-static-pages
+        code: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''

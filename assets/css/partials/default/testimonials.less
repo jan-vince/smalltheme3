@@ -1,0 +1,100 @@
+// main: ../../styles.less
+
+.testimonials {
+
+    position: relative;
+    margin-top: 120px;
+
+
+    .swiper-container {
+
+        // min-height: 100px;
+        position: relative;
+
+        @media(max-width: @screen-sm-max) {
+            height: auto;
+        }
+
+        .swiper-slide {
+            text-align: left;
+
+            background: lighten(black, 96%);
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            align-items: center;
+
+            .testimonial-content-container {
+
+                display: flex;
+
+
+                @media(max-width: @screen-xs-max) {
+                    display: table;
+                }
+
+                .testimonial-image-container {
+
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    width: 260px;
+                    height: 300px;
+
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+
+                    border-right: 30px solid white;
+
+
+                    @media(max-width: @screen-xs-max) {
+                        border: 0;
+                        padding: 30px;
+                        width: auto;
+                        max-width: 300px;
+                        margin: 10px auto 30px auto;
+                    }
+
+                }
+
+                .testimonial-text-container {
+
+                    flex-grow: 0;
+                    flex-shrink: 1;
+
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: center;
+
+                    padding: 0px 60px 10px 60px;
+
+                    @media(max-width: @screen-xs-max) {
+                        padding: 0px 30px 30px 30px;
+                    }
+
+                    .testimonial-author {
+                        line-height: 1.4;
+                    }
+
+                    .testimonial-author {
+                        font-weight: bold;
+                        padding-top: 30px;
+                        color: @headings-color;
+                        font-size: (@font-size-base - 1);
+                    }
+
+                }
+
+            }
+
+        }
+
+
+    }
+
+
+}

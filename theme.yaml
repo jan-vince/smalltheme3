@@ -53,129 +53,6 @@ form:
                 label: Height
                 tab: Branding
                 span: right
-            css_section_colors:
-                label: Colors
-                type: section
-                tab: CSS
-            css_oc_brand_primary:
-                label: 'Brand primary color'
-                comment: '@brand-primary, @primary'
-                type: text
-                span: left
-                assetVar: oc-brand-primary
-                default: '#40A9BF'
-                tab: CSS
-            css_oc_brand_secondary:
-                label: 'Brand secondary color'
-                comment: '@secondary'
-                type: text
-                span: right
-                assetVar: oc-brand-secondary
-                default: '#4B4B4B'
-                tab: CSS
-            css_oc_body_bg:
-                label: 'Background color'
-                comment: '@body-bg'
-                type: text
-                span: left
-                assetVar: oc-body-bg
-                default: '#ffffff'
-                tab: CSS
-            css_oc_text_color:
-                label: 'Text color'
-                comment: '@text-color'
-                type: text
-                span: left
-                assetVar: oc-text-color
-                default: '#494A4E'
-                tab: CSS
-            css_oc_headings_color:
-                label: 'Headings color'
-                comment: '@headings-color'
-                type: text
-                span: right
-                assetVar: oc-headings-color
-                default: '#000000'
-                tab: CSS
-            css_oc_link_color:
-                label: 'Link color'
-                comment: '@link-color'
-                type: text
-                span: left
-                assetVar: oc-link-color
-                default: '#40A9BF'
-                tab: CSS
-            css_oc_link_color_hover:
-                label: 'Link color - hover'
-                comment: '@link-color-hover'
-                type: text
-                span: right
-                assetVar: oc-link-color-hover
-                default: '#40A9BF'
-                tab: CSS
-            css_oc_link_color_visited:
-                label: 'Link color - visited'
-                comment: '@link-color-visited'
-                type: text
-                span: left
-                assetVar: oc-link-color-visited
-                default: '#A440BF'
-                tab: CSS
-            css_section_fonts:
-                label: Fonts
-                type: section
-                tab: CSS
-            css_font_size_base:
-                label: 'Base font size (with unit symbol, eg.: 15px, 1.5rem, 2em)'
-                comment: '@font-size-base'
-                type: text
-                span: left
-                assetVar: oc-font-size-base
-                default: 15px
-                tab: CSS
-            css_font_family_sans_serif:
-                label: 'Font family sans serif'
-                comment: '@font-family-sans-serif'
-                type: text
-                span: left
-                assetVar: oc-font-family-sans-serif
-                default: 'Arial, sans-serif'
-                tab: CSS
-            css_font_family_serif:
-                label: 'Font family serif'
-                comment: '@font-family-serif'
-                type: text
-                span: right
-                assetVar: oc-font-family-serif
-                default: '"Times New Roman", serif'
-                tab: CSS
-            css_font_family_monospace:
-                label: 'Font family monospace'
-                comment: '@font-family-monospace'
-                type: text
-                span: left
-                assetVar: oc-font-family-monospace
-                default: 'Courier New, monospace'
-                tab: CSS
-
-            css_base_line_height:
-                label: 'Base line height'
-                comment: '@base-line-height'
-                type: text
-                span: left
-                assetVar: oc-base-line-height
-                default: '1.7'
-                tab: CSS
-
-            css_headings_line_height:
-                label: 'Headings line height'
-                comment: '@headings-line-height'
-                type: text
-                span: right
-                assetVar: oc-headings-line-height
-                default: '1.2'
-                tab: CSS
-
 
             site_title_prefix:
                 label: 'Page title prefix'
@@ -290,7 +167,7 @@ form:
 
             robots_content:
                 label: 'Content of robots.txt file'
-                commentAbove: 'One definition per line with format like: <br><br>User-agent: *<br>Disallow:'
+                comment: 'If empty default will be used: <br>User-agent: *<br>Disallow:'
                 commentHtml: true
                 type: textarea
                 span: full
@@ -301,4 +178,9 @@ form:
 
 require:
     - Railab.Pages
+    - Rainlab.Sitemap
+    - Rainlab.Analytics
+    - Rainlab.Translate
     - JanVince.SmallExtensions
+    - JanVince.SmallContactForm
+    - JanVince.SmallRecords

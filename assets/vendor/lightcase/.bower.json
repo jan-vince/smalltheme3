@@ -8,7 +8,7 @@
     "window",
     "popup"
   ],
-  "version": "2.4.2",
+  "version": "2.5.0",
   "dependencies": {
     "jquery": ">=1.5.0"
   },
@@ -36,11 +36,11 @@
     "test",
     "tests"
   ],
-  "_release": "2.4.2",
+  "_release": "2.5.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.4.2",
-    "commit": "b97ac061f70490ee6a32dc7beee1ffc04c5d2bbc"
+    "tag": "v2.5.0",
+    "commit": "de5b01997164c8e85d9680ce62f8d1412d144c19"
   },
   "_source": "https://github.com/cbopp-art/lightcase.git",
   "_target": "^2.4.0",

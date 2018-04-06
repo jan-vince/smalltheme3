@@ -1,0 +1,14 @@
+name: 'Main menu (cs)'
+items:
+    -
+        title: Stránky
+        type: all-static-pages
+        code: ''
+        replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''

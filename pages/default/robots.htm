@@ -16,6 +16,10 @@ function onStart(){
 
             $content = $this->theme->robots_content;
 
+        } else {
+        
+            $content = "User-agent: *" . PHP_EOL . "Disallow:";
+
         }
 
     	$theme = Cms\Classes\Theme::getEditTheme();

@@ -5,7 +5,7 @@
  * @author		Cornel Boppart <cornel@bopp-art.com>
  * @copyright	Author
  *
- * @version		2.4.2 (24/11/2017)
+ * @version		2.5.0 (11/03/2018)
  */
 
 ;(function ($) {
@@ -70,6 +70,7 @@
 				overlayOpacity: .9,
 				slideshow: false,
 				slideshowAutoStart: true,
+				breakBeforeShow: false,
 				timeout: 5000,
 				swipe: true,
 				useKeys: true,
@@ -167,12 +168,14 @@
 				},
 				onInit: {},
 				onStart: {},
-				onCalculateDimensions: {},
+				onBeforeCalculateDimensions: {},
+				onAfterCalculateDimensions: {},
+				onBeforeShow: {},
 				onFinish: {},
 				onResize: {},
 				onClose: {},
 				onCleanup: {}
-			}, 
+			},
 			options,
 			// Load options from data-lc-options attribute
 			_self.origin.data ? _self.origin.data('lc-options') : {});
@@ -795,7 +798,7 @@
 			return _self._normalizeUrl(dataUrl.toString());
 		},
 
-			// 
+			//
 		/**
 		 * Tries to get the (file) suffix of an url
 		 *
@@ -804,7 +807,7 @@
 		 */
 		_getFileUrlSuffix: function (url) {
 			var re = /(?:\.([^.]+))?$/;
-			return re.exec(url.toLowerCase())[1]; 
+			return re.exec(url.toLowerCase())[1];
 		},
 
 		/**
@@ -868,15 +871,11 @@
 
 			_self.cache.object = $object;
 
-			// Call onCalculateDimensions hook functions
-			_self._callHooks(_self.settings.onCalculateDimensions);
+			// Call onBeforeShow hook functions
+			_self._callHooks(_self.settings.onBeforeShow);
 
-			_self._calculateDimensions($object);
-
-			// Call onFinish hook functions
-			_self._callHooks(_self.settings.onFinish);
-
-			_self._startInTransition();
+			if (_self.settings.breakBeforeShow) return;
+			_self.show();
 		},
 
 		/**
@@ -908,7 +907,7 @@
 					_self.transition.fade(_self.objects.case, 'in', 0);
 					break;
 			}
- 
+
 			// End loading.
 			_self._loading('end');
 			_self.isBusy = false;
@@ -917,12 +916,15 @@
 			if (!_self.cache.firstOpened) {
 				_self.cache.firstOpened = _self.objectData.this;
 			}
- 
+
 			// Fade in the info with delay
 			_self.objects.info.hide();
 			setTimeout(function () {
 				 _self.transition.fade(_self.objects.info, 'in', _self.settings.speedIn);
 			}, _self.settings.speedIn);
+
+			// Call onFinish hook functions
+			_self._callHooks(_self.settings.onFinish);
 		},
 
 		/**
@@ -1539,16 +1541,43 @@
 
 		/**
 		 * Executes functions for a window resize.
-		 * It stops an eventual timeout and recalculates dimenstions.
+		 * It stops an eventual timeout and recalculates dimensions.
 		 *
-		 * @param	{boolean}	startInTransition
+		 * @param	{object}	dimensions
 		 * @return	{void}
 		 */
-		resize: function (event, startInTransition) {
+		resize: function (event, dimensions) {
 			if (!_self.isOpen) return;
 
 			if (_self.isSlideshowEnabled()) {
 				_self._stopTimeout();
+			}
+
+			if (typeof dimensions === 'object' && dimensions !== null) {
+				if (dimensions.width) {
+					_self.cache.object.attr(
+						_self._prefixAttributeName('width'),
+						dimensions.width
+					);
+				}
+				if (dimensions.maxWidth) {
+					_self.cache.object.attr(
+						_self._prefixAttributeName('max-width'),
+						dimensions.maxWidth
+					);
+				}
+				if (dimensions.height) {
+					_self.cache.object.attr(
+						_self._prefixAttributeName('height'),
+						dimensions.height
+					);
+				}
+				if (dimensions.maxHeight) {
+					_self.cache.object.attr(
+						_self._prefixAttributeName('max-height'),
+						dimensions.maxHeight
+					);
+				}
 			}
 
 			_self.dimensions = _self.getViewportDimensions();
@@ -1556,10 +1585,6 @@
 
 			// Call onResize hook functions
 			_self._callHooks(_self.settings.onResize);
-
-			if (startInTransition) {
-				_self._startInTransition(_self.cache.object);
-			}
 		},
 
 		/**
@@ -1651,6 +1676,21 @@
 
 			_self.objects.document.addClass(_self.settings.classPrefix + 'open');
 			_self.objects.case.attr('aria-hidden', 'false');
+		},
+
+		/**
+		 * Shows the lightcase by starting the transition
+		 */
+		show: function () {
+			// Call onCalculateDimensions hook functions
+			_self._callHooks(_self.settings.onBeforeCalculateDimensions);
+
+			_self._calculateDimensions(_self.cache.object);
+
+			// Call onAfterCalculateDimensions hook functions
+			_self._callHooks(_self.settings.onAfterCalculateDimensions);
+
+			_self._startInTransition();
 		},
 
 		/**

@@ -5,7 +5,7 @@
     "url": "https://github.com/nolimits4web/Swiper.git"
   },
   "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
-  "version": "4.0.7",
+  "version": "4.2.2",
   "author": "Vladimir Kharlampidi",
   "homepage": "http://www.idangero.us/swiper/",
   "keywords": [
@@ -45,11 +45,11 @@
     "playground",
     "package.json"
   ],
-  "_release": "4.0.7",
+  "_release": "4.2.2",
   "_resolution": {
     "type": "version",
-    "tag": "v4.0.7",
-    "commit": "bc4149b70fe8b605db45eb9494efedc73173dd69"
+    "tag": "v4.2.2",
+    "commit": "7d29094f011177e6313ddc23bd1dd568e2ea1acc"
   },
   "_source": "https://github.com/nolimits4web/Swiper.git",
   "_target": "^4.0.5",
