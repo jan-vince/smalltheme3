@@ -2,5 +2,57 @@
 
 #header {
 
+    .navbar {
+        margin: 0;
+        min-height: 60px;
+        border-radius: 0;
 
+        .navbar-header {
+
+            .navbar-brand {
+                color: @text-color;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 15px;
+            }
+
+            .navbar-toggle {
+                border: 1px solid @primary;
+                background-color: @primary;
+                color: white;
+                border-radius: 0;
+                padding: 6px 15px;
+                transition: all 0.3s;
+
+                &:hover {
+                    background: darken(@primary, 5%);
+                }
+            }
+        }
+
+        #navbar-main-menu {
+
+            .navbar-nav-primary {
+
+                list-style: none;
+
+                >li {
+
+                    >a {
+                        font-size: @font-size-nav;
+                        color: @text-color;
+                        padding: 15px;
+                    }
+
+                    &.active {
+                        
+                        >a {
+                            font-weight: bold;
+                            color: @primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

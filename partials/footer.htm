@@ -2,27 +2,35 @@ description = "Footer"
 
 [viewBag]
 ==
-<div class="container">
+<footer id="footer" class="footer">
 
-    <footer id="footer" class="footer">
+    <div class="container">
 
-        {% if this.theme.footer_logo_file %}
+        <div class="row">
 
-            <a class="brand" href="{{ '/'|app }}">
+            <div class="col-xs-12 col-sm-4">
 
-                <img src="{{ this.theme.footer_logo_file|media }}"
-                    alt="{{ this.theme.site_name }}"
-                    width="{{ this.theme.footer_logo_file_width }}"
-                    height="{{ this.theme.footer_logo_file_height }}">
+                {% if this.theme.footer_logo_file %}
 
-            </a>
+                    <a class="brand" href="{{ '/'|app }}">
 
-        {% else %}
+                        <img src="{{ this.theme.footer_logo_file|media }}"
+                            alt="{{ this.theme.site_name }}"
+                            width="{{ this.theme.footer_logo_file_width }}"
+                            height="{{ this.theme.footer_logo_file_height }}">
 
-            <span>Footer</span>
+                    </a>
 
-        {% endif %}
+                {% else %}
 
-    </footer>
+                    <span>Footer</span>
 
-</div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>

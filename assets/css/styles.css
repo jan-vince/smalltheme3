@@ -5107,6 +5107,40 @@ a:visited {
 /**
 *    Partials
 */
+#header .navbar {
+  margin: 0;
+  min-height: 60px;
+  border-radius: 0;
+}
+#header .navbar .navbar-header .navbar-brand {
+  color: #494A4E;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px;
+}
+#header .navbar .navbar-header .navbar-toggle {
+  border: 1px solid #40A9BF;
+  background-color: #40A9BF;
+  color: white;
+  border-radius: 0;
+  padding: 6px 15px;
+  transition: all 0.3s;
+}
+#header .navbar .navbar-header .navbar-toggle:hover {
+  background: #3a98ac;
+}
+#header .navbar #navbar-main-menu .navbar-nav-primary {
+  list-style: none;
+}
+#header .navbar #navbar-main-menu .navbar-nav-primary > li > a {
+  font-size: 14px;
+  color: #494A4E;
+  padding: 15px;
+}
+#header .navbar #navbar-main-menu .navbar-nav-primary > li.active > a {
+  font-weight: bold;
+  color: #40A9BF;
+}
 #banner .jumbotron .title {
   font-size: 34px;
   margin-top: 0;
@@ -5115,16 +5149,8 @@ a:visited {
   font-size: 16px;
 }
 #footer {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-}
-#footer blockquote {
-  border-color: #ddd;
-  border-color: rgba(0, 0, 0, 0.15);
+  background-color: #262626;
+  color: white;
+  font-size: 14px;
+  padding: 30px 40px;
 }

@@ -8,11 +8,11 @@ code = "main-menu-cs"
 
 [viewBag]
 ==
-<header id="header" class="container">
+<header id="header">
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar">
 
-        <div class="container-fluid">
+        <div class="container">
 
             <div class="navbar-header">
 
@@ -29,14 +29,14 @@ code = "main-menu-cs"
 
                 <button type="button" class="navbar-toggle collapsed"
                         data-toggle="collapse"
-                        data-target="#navbar"
+                        data-target="#navbar-main-menu"
                         aria-expanded="false">MENU</button>
 
             </div>
 
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar-main-menu" class="navbar-collapse collapse">
 
-                    {% partial 'default/menu-items' items=attribute(_context, ('main_menu_'~locale) ).menuItems class='nav navbar-nav navbar-right navbar-nav-primary' %}
+                {% partial 'default/menu-items' items=attribute(_context, ('main_menu_'~locale) ).menuItems class='nav navbar-nav navbar-right navbar-nav-primary' %}
 
             </div>
 

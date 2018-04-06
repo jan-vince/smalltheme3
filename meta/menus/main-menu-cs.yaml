@@ -2,9 +2,35 @@ name: 'Main menu (cs)'
 items:
     -
         title: Stránky
+        nesting: ''
         type: all-static-pages
+        url: ''
         code: ''
+        reference: ''
+        cmsPage: ''
         replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''
+    -
+        title: 'Položka 1'
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''
+    -
+        title: 'Položka 2'
+        type: header
+        code: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
