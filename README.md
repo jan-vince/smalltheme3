@@ -64,11 +64,8 @@ There are some default CSS/LESS, JavaScript and OctoberCMS files ready to be use
 
 ### CSS styles
 
-> Default layout file (```/layouts/default.html```) uses LESS styles defined in ```/assets/css/default.less```.    
+Default styles are defined in ```/assets/css/styles.less``` and linked to default layout file (```/layouts/default.html```) with:
 
-1. Duplicate file ````/assets/css/default.less```` to eg. ````/assets/css/custom.less````.
-
-2. Duplicate ````/layouts/default/layout.htm```` file to eg. ````/layout/custom/page.htm```` and update combiner part:
 ```
 {% put stylesheet %}
     <link rel="stylesheet"
@@ -76,19 +73,14 @@ There are some default CSS/LESS, JavaScript and OctoberCMS files ready to be use
 {% endput %}
 ```
 
-3. Create any custom CSS/LESS files in ````/assets/css/custom```` directory.
-
-
 ### JavaScript files
 
-There is a default JS combiner setup in  ```/partials/default/scripts.htm```.
-
-*If you need a different setup you can make a duplicate of this file **outside** of ````/partials/default```` folder and define as you like.*
+There is a default JS combiner setup in  ```/partials/scripts.htm```.
 
 
 ### Layouts
 
-There is a default layout file in ```/layouts/default/layout.htm``` that has some logic implemented (and Custom fields templates for Rainlab Static Pages plugin).
+There is a default layout file in ```/layouts/default.htm``` that has some logic implemented (and Custom fields templates for Rainlab Static Pages plugin).
 
 
 ### Static Pages (plugin)
