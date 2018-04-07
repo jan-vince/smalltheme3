@@ -1,6 +1,12 @@
 description = "Footer"
 
 [viewBag]
+
+[staticMenu main_menu_en]
+code = "main-menu-en"
+
+[staticMenu main_menu_cs]
+code = "main-menu-cs"
 ==
 <footer id="footer" class="footer">
 
@@ -12,7 +18,7 @@ description = "Footer"
 
                 {% if this.theme.footer_logo_file %}
 
-                    <a class="brand" href="{{ '/'|app }}">
+                    <a class="footer-brand" href="{{ '/'|app }}">
 
                         <img src="{{ this.theme.footer_logo_file|media }}"
                             alt="{{ this.theme.site_name }}"
@@ -23,9 +29,17 @@ description = "Footer"
 
                 {% else %}
 
-                    <span>Footer</span>
+                    <a class="footer-brand">{{ this.page.title }}</a>
 
                 {% endif %}
+
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+
+                <h2 class="title">Menu</h2>
+
+                {% partial 'default/menu-items' items=attribute(_context, ('main_menu_'~locale) ).menuItems class='footer-menu' %}
 
             </div>
 
