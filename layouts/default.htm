@@ -1,9 +1,11 @@
-description = "Default layout"
+description = "Default page"
 
 [staticPage]
-useContent = true
+useContent = false
 default = true
 childLayout = "default"
+
+[galleries]
 ==
 <?php
 
@@ -18,34 +20,21 @@ childLayout = "default"
 <!DOCTYPE html>
 <html lang="{{ locale ? locale : 'en' }}">
 
-    {% put styles %}
-
-{#      October internal combiner  
-
-        <link rel="stylesheet"
-              href="{{ ['assets/css/styles.less'] |theme }}.css">
-#}
-
-{#      Externally compiled CSS file        #}
-
-        <link rel="stylesheet"
-                href="{{ 'assets/css/styles.css' |theme }}">
-
-    {% endput %}
-
     {% partial "head" %}
 
     <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
 
-        {% if showHeader %}
-            {% partial "header" %}
+        {% partial "header" %}
+
+        {% partial "default/banner-slim" %}
+
+        {% if contentTitle %}
+            {% partial "page/title-block" %}
         {% endif %}
 
-        {% if showBanner %}
-            {% partial "default/banner" %}
+        {% if showGallery %}
+            {% partial "page/gallery" records = galleries.items blockTitle = 'Enjoy our work' blockId = 'our-work' %}
         {% endif %}
-
-        {% page %}
 
         {% if showTestimonials %}
             {% partial "default/testimonials" %}
@@ -55,9 +44,7 @@ childLayout = "default"
             {% partial "default/cta" %}
         {% endif %}
 
-        {% if showFooter %}
-            {% partial "footer" %}
-        {% endif %}
+        {% partial "footer" %}
 
         {% partial "scripts" %}
 
@@ -67,27 +54,19 @@ childLayout = "default"
 
     <!--
 
-    {variable tab="Banner" type="checkbox" name="showBanner" label="Zobrazit banner" span="full" default="false"}{/variable}
-    {variable tab="Banner" type="text" name="bannerTitle" label="Nadpis" span="full"}{/variable}
-    {variable tab="Banner" type="richeditor" name="bannerContent" label="Obsah" span="full"}{/variable}
-
-    {variable tab="Mapa" type="section" label="Střed mapy a přiblížení" span="full"}
-    {variable tab="Mapa" type="text" name="mapLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable}
-    {variable tab="Mapa" type="text" name="mapLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable}
-    {variable tab="Mapa" type="text" name="mapZoom" label="Přiblížení" span="full" comment="Číslo 1-20"}{/variable}
-
-    {repeater tab="Mapa" name="mapPins" prompt="Přidat bod na mapu" label="Body na mapě"}
-        {variable tab="Mapa" type="text" name="mapPinTitle" label="Název bodu" span="full"}{/variable}
-        {variable tab="Mapa" type="text" name="mapPinLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable}
-        {variable tab="Mapa" type="text" name="mapPinLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable}
-        {variable type="richeditor" name="mapPinContent" label="Text u připínáčku v mapě" span="full" commentAbove="Text se zobrazí po klepnutí na symbol připínáčku v mapě"}{/variable}
+    {variable tab="Content" type="text" name="contentTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Content" type="richeditor" name="contentText" label="Content" span="full"}{/variable}
+    {variable tab="Content" type="mediafinder" name="contentImage" label="Image" span="left" mode="image"}{/variable}
+    {variable tab="Content" type="text" name="contentImageAlt" label="Image alt" span="right"}{/variable}
+    {repeater tab="Content" name="contentBtns" prompt="Add button" label="Buttons"}
+        {variable type="text" name="contentBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="contentBtnLink" label="Button lin" span="right" comment="Eg.: /contact"}{/variable}
     {/repeater}
 
-    {variable tab="Volby" type="checkbox" name="showHeader" label="Zobrazit hlavičku" span="full" default="false"}{/variable}
-    {variable tab="Volby" type="checkbox" name="showTestimonials" label="Zobrazit panel ohlasů/referencí" span="full" default="false"}{/variable}
-    {variable tab="Volby" type="checkbox" name="showCTA" label="Zobrazit panel CTA (výzva k akci)" span="left" default="false"}{/variable}
-    {variable tab="Volby" type="checkbox" name="showCTALine" label="Zobrazit linku nad panelem CTA" span="right" default="false"}{/variable}
-    {variable tab="Volby" type="checkbox" name="showFooter" label="Zobrazit patičku" span="left" default="false"}{/variable}
+    {variable tab="Settings" type="checkbox" name="showTestimonials" label="Show testimonials" span="full"}{/variable}
+    {variable tab="Volby" type="checkbox" name="showGallery" label="Show image gallery" span="left"}{/variable}
+    {variable tab="Settings" type="checkbox" name="showCTA" label="Show CTA" span="left"}{/variable}
+    {variable tab="Settings" type="checkbox" name="showCTALine" label="Add a line above CTA block" span="right"}{/variable}
 
     -->
 

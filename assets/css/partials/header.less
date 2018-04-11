@@ -4,7 +4,7 @@
 
     .navbar {
         margin: 0;
-        min-height: 60px;
+        min-height: 90px;
         border-radius: 0;
 
         .navbar-header {
@@ -13,7 +13,9 @@
                 color: @text-color;
                 font-weight: bold;
                 text-transform: uppercase;
-                padding: 15px;
+                padding: 37px 15px;
+                text-decoration: none;
+                font-weight: 800;
             }
 
             .navbar-toggle {
@@ -23,6 +25,8 @@
                 border-radius: 0;
                 padding: 6px 15px;
                 transition: all 0.3s;
+                margin-top: 26px;
+                border-radius: 4px;
 
                 &:hover {
                     background: darken(@primary, 5%);
@@ -35,22 +39,39 @@
             .navbar-nav-primary {
 
                 list-style: none;
+                margin-top: 20px;
 
                 >li {
+
+                    margin-left: 20px;
 
                     >a {
                         font-size: @font-size-nav;
                         color: @text-color;
-                        padding: 15px;
+                        padding: 20px;
+                        background: transparent url('../images/default/nav/nav-circle-o@2x.png') left center no-repeat;
+                        background-size: 8px 8px;
+                        line-height: 1.1;
+                        transition: all 0.2s;
+                        text-decoration: none;
+
+                        &:hover {
+                            background: transparent url('../images/default/nav/nav-circle@2x.png') left center no-repeat;
+                            background-size: 8px 8px;
+                            color: @primary;
+                        }
                     }
 
                     &.active {
                         
                         >a {
-                            font-weight: bold;
+                            background: transparent url('../images/default/nav/nav-circle@2x.png') left center no-repeat;
+                            background-size: 8px 8px;
+                            font-weight: 900;
                             color: @primary;
                         }
                     }
+
                 }
             }
         }

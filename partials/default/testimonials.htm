@@ -2,23 +2,27 @@ description = "Testimonials"
 
 [viewBag]
 snippetCode = "testimonials"
-snippetName = "Panel: Ohlasy"
+snippetName = "Panel: Testimonials"
 
 [staticMenu testimonials]
-code = "ohlasy"
+code = "testimonials"
 ==
 {% if testimonials.menuItems|length %}
 
     <div class="testimonials">
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="testimonial-border-top"></div>
+        <div class="testimonial-border-bottom"></div>
+
+        {% if testimonials.menuItems|length > 1 %}
+            <div class="swiper-button swiper-button-prev"></div>
+            <div class="swiper-button swiper-button-next"></div>
+        {% endif %}
 
         <div class="container">
 
             <!-- Swiper -->
             <div class="swiper-container testimonials-swiper-container">
-
 
                 <div class="swiper-wrapper">
 
@@ -26,17 +30,25 @@ code = "ohlasy"
 
                         <div class="swiper-slide slide-{{ (loop.index0) }}">
 
-                            <div class="testimonial-content-container">
+                            <div class="testimonial-image-container">
+                                
+                                {% if item.viewBag.image %}
+                                
+                                    <div class="image" style="background-image: url({{ item.viewBag.image|media }});"></div>
+                                
+                                {% else %}
 
-                                <div class="testimonial-image-container" style="background-image: url({{ item.viewBag.image|media }});"></div>
+                                    <div class="image image-empty image-fake"></div>
 
-                                <div class="testimonial-text-container">
+                                {% endif %}
 
-                                    <div class="testimonial-content">{{ item.viewBag.note|nl2br }}</div>
+                            </div>
 
-                                    <div class="testimonial-author">{{ item.title }}</div>
+                            <div class="testimonial-text-container">
 
-                                </div>
+                                <div class="testimonial-content">{{ item.viewBag.note|nl2br }}</div>
+
+                                <div class="testimonial-author">{{ item.title }}</div>
 
                             </div>
 
@@ -55,8 +67,6 @@ code = "ohlasy"
 
     {% put scripts %}
 
-        <script src="{{"/assets/vendor/swiper/dist/js/swiper.min.js"|theme}}"></script>
-
         <!-- Initialize Swiper -->
         <script>
 
@@ -64,17 +74,23 @@ code = "ohlasy"
             function swiperInit() {
 
                 swiper = new Swiper('.swiper-container', {
+
+                {% if testimonials.menuItems|length > 1 %}
                     navigation: {
                       nextEl: '.swiper-button-next',
                       prevEl: '.swiper-button-prev',
                     },
-        //            pagination: '.swiper-pagination',
+                    loop: true,
+                    paginationClickable: true,
+                    keyboardControl: true,
+                {% else %}
+                    loop: false,
+                {% endif %}
+
+//                  pagination: '.swiper-pagination',
                     effect: 'slide',
                     slidesPerView: 1,
-                    keyboardControl: true,
-                    paginationClickable: true,
                     spaceBetween: 0,
-                    loop: true,
                     autoplay: false,
                     speed: 900,
                     preloadImages: false,
@@ -119,10 +135,6 @@ code = "ohlasy"
 
             $(document).ready(function () {
                 swiperInit();
-            });
-
-            $('.swiper-button').on('click', function () {
-                swiper.stopAutoplay();
             });
 
             $('.more-btn').on('click', function () {

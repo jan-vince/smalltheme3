@@ -1,9 +1,41 @@
 name: 'Main menu (en)'
 items:
     -
-        title: Pages
-        type: all-static-pages
+        title: Home
+        nesting: '1'
+        type: static-page
+        url: ''
         code: ''
+        reference: index
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''
+    -
+        title: 'Our work'
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: our-work
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: Contact
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: contact
+        cmsPage: ''
         replace: '0'
         viewBag:
             isHidden: '0'

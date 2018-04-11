@@ -1,0 +1,18 @@
+name: Testimonials
+items:
+    -
+        title: 'Jane Doe'
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: 'Quisque vitae volutpat lorem, ut convallis ante. Aenean quam mi, sagittis et ullamcorper at, posuere id tellus. Phasellus scelerisque in tortor ut euismod. Mauris tempus lacus augue. Nulla condimentum dignissim diam, sit amet bibendum enim.'
+            image: ''
+            color: ''

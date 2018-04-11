@@ -1,0 +1,81 @@
+description = "Contact page"
+
+[staticPage]
+useContent = false
+default = true
+childLayout = "default"
+
+[contactForm contactForm]
+==
+<?php
+
+    function onStart() {
+
+        $this['locale'] = App::getLocale();
+
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : 'en' }}">
+
+    {% partial "head" %}
+
+    <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
+
+        {% partial "header" %}
+
+        {% partial "default/banner-slim" %}
+
+        {% if contentTitle %}
+            {% partial "page/title-block" showContactform = showContactform %}
+        {% endif %}
+
+        {% if showMap %}
+            {% partial "default/map-seznam" %}
+        {% endif %}
+
+        {% if showCTA %}
+            {% partial "default/cta" %}
+        {% endif %}
+
+        {% partial "footer" %}
+
+        {% partial "scripts" %}
+
+        {% scripts %}
+
+    </body>
+
+    <!--
+
+    {variable tab="Content" type="text" name="contentTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Content" type="richeditor" name="contentText" label="Content" span="full"}{/variable}
+    {variable tab="Content" type="mediafinder" name="contentImage" label="Image" span="left" mode="image"}{/variable}
+    {variable tab="Content" type="text" name="contentImageAlt" label="Image alt" span="right"}{/variable}
+    {repeater tab="Content" name="contentBtns" prompt="Add button" label="Buttons"}
+        {variable type="text" name="contentBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="contentBtnLink" label="Button lin" span="right" comment="Eg.: /contact"}{/variable}
+    {/repeater}
+
+    {variable tab="Mapa" type="section" label="Střed mapy a přiblížení" span="full"}
+    {variable tab="Mapa" type="text" name="mapLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable}
+    {variable tab="Mapa" type="text" name="mapLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable}
+    {variable tab="Mapa" type="text" name="mapZoom" label="Přiblížení" span="full" comment="Číslo 1-20"}{/variable}
+
+    {repeater tab="Mapa" name="mapPins" prompt="Přidat bod na mapu" label="Body na mapě"}
+        {variable tab="Mapa" type="text" name="mapPinTitle" label="Název bodu" span="full"}{/variable}
+        {variable tab="Mapa" type="text" name="mapPinLat" label="Zeměpisná délka" span="left" comment="Např.: 49.1234567"}{/variable}
+        {variable tab="Mapa" type="text" name="mapPinLng" label="Zeměpisná šířka" span="right" comment="Např.: 18.1234567"}{/variable}
+        {variable type="richeditor" name="mapPinContent" label="Text u připínáčku v mapě" span="full" commentAbove="Text se zobrazí po klepnutí na symbol připínáčku v mapě"}{/variable}
+    {/repeater}
+
+    {variable tab="Volby" type="checkbox" name="showMap" label="Zobrazit mapu" span="left" default="false"}{/variable}
+    {variable tab="Volby" type="checkbox" name="showCTA" label="Zobrazit panel CTA (výzva k akci)" span="left" default="false"}{/variable}
+    {variable tab="Volby" type="checkbox" name="showCTALine" label="Zobrazit linku nad panelem CTA" span="right" default="false"}{/variable}
+    {variable tab="Volby" type="checkbox" name="showFooter" label="Zobrazit patičku" span="left" default="false"}{/variable}
+
+    -->
+
+</html>

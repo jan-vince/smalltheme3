@@ -1,0 +1,42 @@
+description = "Breadcrumbs"
+
+[staticBreadcrumbs]
+==
+
+{% if breadcrumbs %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12">
+
+                <ul class="breadcrumbs">
+
+                    <li class="home">
+
+                        <a href="{{ '/'|app }}">Úvod</a>
+
+                    </li>
+
+                    {% for breadcrumb in breadcrumbs %}
+
+                        <li class="item-separator">/</li>
+
+                        <li class="{{ breadcrumb.isActive ? 'active' : '' }}">
+
+                            <a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endif %}

@@ -4,3 +4,5 @@
 1.0.3: Added JanVince.SmallExtensions plugin as required. Added translations twig filters to /404 and /error pages.
 1.0.4: Removed Bootstrap sandbox
 1.0.5: Changed directory schema and added default page
+1.1.0: Added 3 main pages
+2.0.0: Redesigned theme

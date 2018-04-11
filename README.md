@@ -1,47 +1,9 @@
 # SmallTheme 3
-> Simple Bootstrap 3 starter theme for OctoberCMS
+> Simple Bootstrap 3 theme for OctoberCMS
 
 ## Installation
 
-### Install OctoberCMS first
-
-> This is only a one of many ways how to install OctoberCMS.
-
-#### Web installer
-
-Download installation file from [http://octobercms.com/download](http://octobercms.com/download).    
-Unzip downloaded file, upload to your hosting and visit URL ````/install.php````.
-
-#### Console instalation
-
-> You need php and curl installed!
-
-````sh
-curl -s https://octobercms.com/api/installer | php
-
-php artisan october:install
-php artisan october:fresh    
-php artisan october:update
-````
-
-## Useful plugins
-
-````sh
-php artisan plugin:install Rainlab.Pages
-php artisan plugin:install Rainlab.Blog
-php artisan plugin:install Rainlab.GoogleAnalytics
-php artisan plugin:install Rainlab.Sitemap
-
-php artisan plugin:install JanVince.SmallExtensions
-php artisan plugin:install JanVince.SmallContactForm
-
-php artisan plugin:install Bedard.AnalyticsExtension
-php artisan plugin:install Romanov.ClearCacheWidget
-````
-
-## Small Theme
-
-Download or clone from **GitHub** into `/themes` dir:
+Install from OctoberCMS marketplace or clone from **GitHub** into `/themes` dir:
 
 ````sh
 git clone https://github.com/jan-vince/smalltheme3.git
@@ -49,45 +11,21 @@ git clone https://github.com/jan-vince/smalltheme3.git
 
 ----
 
-## Quick setup guide
+## Quick setup
 
-This theme is build with [Bootstrap 3 framework](https://getbootstrap.com/docs/3.3/).    
-There are some default CSS/LESS, JavaScript and OctoberCMS files ready to be used (or copied) in your web layout.
+This theme is build with [Bootstrap 3 framework](https://getbootstrap.com/docs/3.3/) and is based on one of my designs.
 
 ### Basic stuff
 
-1. Update settings in *Settings > Front-end theme > Customize (SmallTheme 3)*.
-
-2. Create ````/assets/images/theme-preview.png```` image as it is used as a preview in OctoberCMS backend and also as default preview image for sharing in Facebook or Twitted.
-
-3. Put your own ````favicon.png```` and ````favicon.ico```` into directory ````/assets/images````.
+Update settings in *Settings > Front-end theme > Customize (SmallTheme 3)*.
 
 ### CSS styles
 
-Default styles are defined in ```/assets/css/styles.less``` and linked to default layout file (```/layouts/default.html```) with:
-
-```
-{% put stylesheet %}
-    <link rel="stylesheet"
-            href="{{ ['assets/css/custom.less']|theme }}.css">
-{% endput %}
-```
 
 ### JavaScript files
 
 There is a default JS combiner setup in  ```/partials/scripts.htm```.
 
-
-### Layouts
-
-There is a default layout file in ```/layouts/default.htm``` that has some logic implemented (and Custom fields templates for Rainlab Static Pages plugin).
-
-
-### Static Pages (plugin)
-
-There is a default Static page ready that uses default layout and custom fields and is accessible by URL: ```/```.
-
-In backend (with Static pages plugin installed) you can 'build' your layout with some of preinstalled parts (partials) like Header, Banner, CTA, Footer, ...
 
 ## Misc
 
@@ -101,7 +39,7 @@ You can setup humans.txt file content in the theme settings (in OctoberCMS backe
 
 The theme uses Bower to maintain assets files.
 
-To update vendor files, run command in terminal (in theme root folder): ```bower update```. But it will be updated automatically with every theme update.
+To update vendor files, run command in terminal (in theme root folder): ```bower update```.
 
 ----
 

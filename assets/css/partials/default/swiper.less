@@ -1,7 +1,6 @@
 // main: ../../styles.less
 
 .swiper-container {
-
     width: 100%;
     margin: 0;
     padding-bottom: 0;
@@ -12,64 +11,52 @@
         background-size: cover;
         background-position: center center;
         width: 100%;
-
     }
 
-
     .swiper-scrollbar {
-
         bottom: 0;
-
         background: #efefef;
         border-radius: 0;
         height: 8px;
-
         left: 0;
         width: 100%;
-
         cursor: pointer;
 
         .swiper-scrollbar-drag {
             background: @primary;
             border-radius: 0;
         }
-
     }
 
     .swiper-lazy-preloader {
         display: none;
     }
 
-
 }
 
 .swiper-button-next {
-    background: transparent url(../images/swiper-arrow-right@2x.png) center center no-repeat;
-    background-size: 33px 33px;
-    width: 33px;
-    height: 33px;
+    background: transparent url('../images/default/testimonials/swiper-button-next@2x.png') center center no-repeat;
+    background-size: 24px 39px;
+    width: 25px;
+    height: 40px;
     right: 30px;
 
     @media(max-width: @screen-xs-max){
         right: 10px;
         opacity: 0.5;
     }
-
 }
 
 .swiper-button-prev {
-    background: transparent url(../images/swiper-arrow-left@2x.png) center center no-repeat;
-    background-size: 33px 33px;
-    width: 33px;
-    height: 33px;
-    left: 30px;
-
+    background: transparent url('../images/default/testimonials/swiper-button-prev@2x.png') center center no-repeat;
+    background-size: 24px 39px;
+    width: 25px;
+    height: 40px;
 
     @media(max-width: @screen-xs-max){
         left: 10px;
         opacity: 0.5;
     }
-
 }
 
 .swiper-button-prev, .swiper-button-next {
@@ -86,7 +73,6 @@
     &:hover {
         opacity: 0.9;
     }
-
 }
 
 .swiper-button-disabled {

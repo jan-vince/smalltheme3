@@ -1,14 +1,14 @@
 name: 'Main menu (cs)'
 items:
     -
-        title: Stránky
-        nesting: ''
-        type: all-static-pages
+        title: Úvod
+        nesting: '1'
+        type: static-page
         url: ''
         code: ''
-        reference: ''
+        reference: index
         cmsPage: ''
-        replace: '1'
+        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -17,9 +17,14 @@ items:
             image: ''
             color: ''
     -
-        title: 'Položka 1'
-        type: header
+        title: 'Naše práce'
+        nesting: '0'
+        type: static-page
+        url: ''
         code: ''
+        reference: our-work
+        cmsPage: ''
+        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -28,9 +33,12 @@ items:
             image: ''
             color: ''
     -
-        title: 'Položka 2'
-        type: header
+        title: Kontakt
+        nesting: '0'
+        type: static-page
         code: ''
+        reference: contact
+        replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''

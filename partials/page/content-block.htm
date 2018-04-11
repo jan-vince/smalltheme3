@@ -1,0 +1,42 @@
+description = "Content block"
+==
+
+<div class="container page-content-block">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6">
+        
+            <h2 class="title">{{ contentTitle }}</h2>
+            
+            <div class="content">{{ contentText|raw }}</div>
+
+            {% if contentBtns|length %}
+
+                <div class="content-btns">
+
+                    {% for btn in contentBtns %}
+
+                        <a href="{{ btn.contentBtnLink }}" class="btn btn-primary">{{ btn.contentBtnTitle }}</a>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+
+            {% if contentImage %}
+
+                <img class="thumbnail" src="{{ contentImage|media }}" alt="{{contentImageAlt ? contentImageAlt : contentTitle}}">
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>

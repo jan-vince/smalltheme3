@@ -16,7 +16,8 @@
 *    Other optional goodies
 */
 // @import "../vendor/swiper/dist/css/swiper.min.css";
-// @import "../vendor/lightcase/src/css/lightcase.css";
+@import "../vendor/swiper/src/swiper.less";
+@import "../vendor/lightcase/src/css/lightcase.css";
 // @import "../vendor/font-awesome/less/font-awesome.less";
 // @import "default/misc/framework.extras.less";
 
@@ -25,14 +26,14 @@
 */
 // @import "../vendor/font-awesome/less/font-awesome.less";
 // @import (inline) "fonts/open-sans.css";
-// @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,400i,700,800&subset=latin-ext');
 
 /**
 *    Layouts
 */
 @import "layouts/common.less";
 @import "layouts/default.less";
+@import "layouts/contact.less";
 
 
 /**
@@ -42,5 +43,12 @@
 @import "partials/footer.less";
 
 @import "partials/default/banner.less";
-// @import "partials/default/swiper.less";
-// @import "partials/default/testimonials.less";
+@import "partials/default/swiper.less";
+@import "partials/default/testimonials.less";
+@import "partials/default/cta.less";
+@import "partials/default/breadcrumbs.less";
+@import "partials/default/map.less";
+
+@import "partials/page/content-block.less";
+@import "partials/page/title-content-block.less";
+@import "partials/page/gallery.less";

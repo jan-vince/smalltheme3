@@ -108,6 +108,17 @@ function onEnd() {
 
     {% endif %}
 
+{#      October internal combiner
+
+        <link rel="stylesheet"
+              href="{{ ['assets/css/styles.less'] |theme }}.css">
+#}
+
+{#      Externally compiled CSS file #}
+
+        <link rel="stylesheet"
+                href="{{ 'assets/css/styles.css' |theme }}">
+
     {% styles %}
 
 	{#    <link rel="alternate" type="application/rss+xml" href="{{ '/'|app }}/rss" title="Blog RSS" /> #}

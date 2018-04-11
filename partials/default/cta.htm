@@ -1,25 +1,27 @@
 description = "CTA"
 ==
 
-<div class="cta">
+<div class="page-block-container cta">
+
+    {% if showCTALine %}
+
+        <div class="cta-line">
+
+            <div class="full-line"></div>
+
+        </div>
+
+    {% endif %}
 
     <div class="container">
 
         <div class="row">
 
-            {% if showCTALine %}
+            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cta-content">
 
-                <div class="col-xs-12 cta-line-container">
-
-                    <div class="full-line"></div>
-
-                </div>
-
-            {% endif %}
-
-            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cta-container">
-
-                {{ contentCTA|raw }}
+                {% if content("cta.htm") %}
+                    {% content "cta.htm" %}
+                {% endif %}
 
             </div>
 

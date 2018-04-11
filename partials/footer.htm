@@ -10,11 +10,13 @@ code = "main-menu-cs"
 ==
 <footer id="footer" class="footer">
 
+    <div class="footer-border"></div>
+
     <div class="container">
 
         <div class="row">
 
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-3">
 
                 {% if this.theme.footer_logo_file %}
 
@@ -29,20 +31,72 @@ code = "main-menu-cs"
 
                 {% else %}
 
-                    <a class="footer-brand">{{ this.page.title }}</a>
+                    <a class="footer-brand">{{ this.theme.getConfig.name }}</a>
 
                 {% endif %}
 
+                <div class="footer-brand-content">
+                
+                    {% content "footer" %}
+
+                </div>
+
             </div>
 
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-3 col-sm-offset-1 footer-menu">
 
                 <h2 class="title">Menu</h2>
 
-                {% partial 'default/menu-items' items=attribute(_context, ('main_menu_'~locale) ).menuItems class='footer-menu' %}
+                {% set items = attribute(_context, ('main_menu_en') ).menuItems %}
+                
+                {#  Uncomment for locale specific menu 
+                    {% set items = attribute(_context, ('main_menu_'~locale) ).menuItems %}
+                #}
+
+                {% partial 'default/menu-items' items=items class='footer-menu-nav' %}
 
             </div>
 
+{#          Form
+            <div class="col-xs-12 col-sm-4 col-sm-offset-1 footer-form">
+
+                <h2 class="title">Napište mi, ráda odpovím</h2>
+
+                {% component "contactFormFooter" %}
+
+            </div>
+#}
+
+            <div class="col-xs-12 col-sm-5 footer-contact">
+
+                <p class="phone">
+                    +420 <strong>123 456 789</strong>
+                </p>
+
+                <p class="mail">
+                    <a href="mailto:info@localhost">info@localhost</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="author-container">
+    
+        <div class="container">
+
+            <div class="col-xs-12">
+            
+                <p class="author">
+                
+                    <a href="https://www.vince.cz"><strong>Vince</strong> Webdesign</a>
+                
+                </p>
+            
+            </div>
+        
         </div>
 
     </div>

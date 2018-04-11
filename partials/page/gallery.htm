@@ -1,0 +1,80 @@
+description = "Gallery"
+==
+
+<div class="gallery" {% if blockId %}id="{{blockId}}"{% endif %}>
+
+    <div class="container page-content-block">
+    
+        <div class="row">
+
+            <div class="col-xs-12">
+            
+                <h2 class="title">{{ blockTitle }}</h2>
+            
+            </div>
+
+            {% if records|length == 0 %}
+                
+                <div class="col-xs-12">
+                    <br>
+                    <p>No images found.</p>
+                    <p>You can add some in backend in Gallery.</p>
+
+                </div>
+
+            {% endif %}
+
+            {% for record in records %}
+
+                <div class="col-xs-12 gallery-box">
+
+                    <h3 class="title">
+                        {{ record.name }}
+                    </h3>
+
+                    {% if record.images|length %}
+
+                        {% for image in record.images %}
+
+                            <a class="thumbnail" 
+                                href="{{ image.getPath() }}" 
+                                title="{{ image.title ? image.title : (record.name~' - image '~loop.index) }}"
+                                style="background-image: url({{ image.getThumb(200,200) }}); "
+                                data-rel="lightcase:{{record.slug}}">
+                            </a>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+        
+        </div>
+    
+    </div>
+
+</div>
+
+{% put scripts %}
+
+    <script>
+        jQuery(document).ready(function($) {
+            $('a[data-rel^=lightcase]').lightcase({
+                swipe: true,
+                slideshow: true,
+                labels: {
+                    'errorMessage': 'Obrázek nebyl nalezen ...',
+                    'sequenceInfo.of': ' z ',
+                    'close': 'Zavřít',
+                    'navigator.prev': 'Předchozí',
+                    'navigator.next': 'Následující',
+                    'navigator.play': 'Přehrát',
+                    'navigator.pause': 'Zastavit'
+                }
+            });
+        });
+    </script>
+
+{% endput %}

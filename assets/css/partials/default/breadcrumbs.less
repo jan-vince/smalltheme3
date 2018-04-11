@@ -1,0 +1,33 @@
+// main: ../../styles.less
+
+.breadcrumbs {
+    padding: 0;
+    margin-top: @standard;
+    list-style: none;
+
+    >li {
+        display: inline-block;
+        color: lighten(black, 50%);
+
+        &.active {
+            >a {
+                font-weight: bold;
+            }
+        }
+
+        &.item-separator {
+            padding: 0 3px;
+        }
+
+        >a {
+            color: lighten(black, 50%);
+            font-size: (@font-size-base - 2);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                color: @primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+description = "Home page"
+
+[staticPage]
+useContent = false
+default = true
+childLayout = "default"
+
+[contactForm contactFormFooter]
+==
+<?php
+
+    function onStart() {
+
+        $this['locale'] = App::getLocale();
+
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : 'en' }}">
+
+    {% partial "head" %}
+
+    <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
+
+        {% partial "header" %}
+
+        {% if showBanner %}
+            {% partial "default/banner" %}
+        {% endif %}
+
+        {% if contentTitle %}
+            {% partial "page/content-block" %}
+        {% endif %}
+
+        {% if showTestimonials %}
+            {% partial "default/testimonials" %}
+        {% endif %}
+
+        {% if showCTA %}
+            {% partial "default/cta" %}
+        {% endif %}
+
+        {% partial "footer" %}
+
+        {% partial "scripts" %}
+
+        {% scripts %}
+
+    </body>
+
+    <!--
+
+    {variable tab="Banner" type="checkbox" name="showBanner" label="Show banner" span="full"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerContent" label="Content" span="full"}{/variable}
+    {repeater tab="Banner" name="bannerBtns" prompt="Add button" label="Button"}
+        {variable type="text" name="bannerBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="bannerBtnLink" label="Button link" span="right" comment="Eg.: /contact"}{/variable}
+    {/repeater}
+
+    {variable tab="Content" type="text" name="contentTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Content" type="richeditor" name="contentText" label="Content" span="full"}{/variable}
+    {variable tab="Content" type="mediafinder" name="contentImage" label="Image" span="left" mode="image"}{/variable}
+    {variable tab="Content" type="text" name="contentImageAlt" label="Image alt" span="right"}{/variable}
+    {repeater tab="Content" name="contentBtns" prompt="Add button" label="Buttons"}
+        {variable type="text" name="contentBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="contentBtnLink" label="Button lin" span="right" comment="Eg.: /contact"}{/variable}
+    {/repeater}
+
+    {variable tab="Settings" type="checkbox" name="showTestimonials" label="Show testimonials" span="full"}{/variable}
+    {variable tab="Settings" type="checkbox" name="showCTA" label="Show CTA" span="left"}{/variable}
+    {variable tab="Settings" type="checkbox" name="showCTALine" label="Add a line above CTA block" span="right"}{/variable}
+
+    -->
+
+</html>

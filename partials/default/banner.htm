@@ -3,11 +3,44 @@ description = "Banner"
 
 <div class="banner">
 
+    <div class="banner-border-top"></div>
+    <div class="banner-border-bottom"></div>
+
     <div class="content-box">
 
-        <h1 class="title">Banner{{ bannerTitle }}</h1>
+        <div class="row">
+        
+            <div class="col-xs-12 col-sm-8">
+            
+                <h1 class="title">{{ bannerTitle|striptags('<br><strong>')|raw }}</h1>
 
-        <div class="content">Lorem ipsum{{ bannerContent|raw }}</div>
+            </div>
+
+            <div class="col-xs-12"></div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-5">
+
+                <div class="content">{{ bannerContent|raw }}</div>
+
+            </div>
+
+            {% if bannerBtns|length %}
+
+                <div class="col-xs-12"></div>
+
+                <div class="col-xs-12 col-sm-8 col-lg-6 banner-btns">
+
+                {% for btn in bannerBtns %}
+
+                    <a href="{{ btn.bannerBtnLink }}" class="btn btn-primary">{{ btn.bannerBtnTitle }}</a>
+
+                {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
 
     </div>
 
