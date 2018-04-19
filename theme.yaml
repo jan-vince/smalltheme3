@@ -1,8 +1,8 @@
-name: Small Theme 3
-description: ''
-author: 'Jan Vince'
-homepage: 'https://www.vince.cz'
-code: smalltheme-3
+name: "Small Theme 3"
+description: "Simple OctoberCMS theme based on Bootstrap 3"
+author: "Jan Vince"
+homepage: "https://www.vince.cz"
+code: "smalltheme3"
 form:
     fields:
         section_info:
