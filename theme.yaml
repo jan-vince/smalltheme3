@@ -183,3 +183,4 @@ require:
     - JanVince.SmallExtensions
     - JanVince.SmallContactForm
     - JanVince.SmallGallery
+    - JanVince.SmallRecords
