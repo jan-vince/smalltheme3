@@ -4717,7 +4717,9 @@ button.close {
 .navbar-collapse:before,
 .navbar-collapse:after,
 .banner .content-box:before,
-.banner .content-box:after {
+.banner .content-box:after,
+.banner-jumbo .content-box:before,
+.banner-jumbo .content-box:after {
   content: " ";
   display: table;
 }
@@ -4731,7 +4733,8 @@ button.close {
 .navbar:after,
 .navbar-header:after,
 .navbar-collapse:after,
-.banner .content-box:after {
+.banner .content-box:after,
+.banner-jumbo .content-box:after {
   clear: both;
 }
 .center-block {
@@ -5248,6 +5251,95 @@ h6 {
     padding: 0;
   }
 }
+/**
+*      Lines
+*/
+.line {
+  border-top: 2px solid #d9d9d9;
+  margin-top: 100px;
+}
+/**
+*   Forms
+*/
+form .form-group .required:after {
+  content: ' *';
+}
+/**
+*   Overlay
+*   from solutions found on web
+*/
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.96);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+  z-index: 9990;
+}
+.overlay.open {
+  opacity: .9;
+  visibility: visible;
+  height: 100%;
+}
+.overlay.open li {
+  animation: fadeInRight .5s ease forwards;
+  animation-delay: .35s;
+}
+.overlay nav {
+  position: relative;
+  text-align: center;
+  margin-top: 80px;
+}
+.overlay nav .title {
+  font-size: 50px;
+  color: white;
+}
+.overlay nav .subtitle {
+  font-size: 26px;
+  color: white;
+}
+.overlay nav .nav-primary {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+.overlay nav .nav-primary > li {
+  display: block;
+  position: relative;
+  opacity: 0;
+}
+.overlay nav .nav-primary > li > a {
+  display: block;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+}
+.overlay nav .nav-primary > li > a:hover {
+  text-decoration: underline;
+}
+.overlay nav .nav-primary > li.active > a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
 .layout-default .testimonials {
   margin-top: 120px;
 }
@@ -5552,6 +5644,156 @@ h6 {
   .banner-slim {
     padding-bottom: 0;
   }
+}
+.banner-jumbo {
+  margin-top: 0;
+  height: calc(100vh);
+  min-height: 720px;
+  max-height: 800px;
+}
+@media (max-width: 767px) {
+  .banner-jumbo {
+    padding: 20px;
+  }
+}
+.banner-jumbo .navbar-brand {
+  color: #494A4E;
+  text-transform: uppercase;
+  padding: 10px 0;
+  text-decoration: none;
+  font-weight: 800;
+  float: none;
+  font-size: 27px;
+  display: block;
+}
+.banner-jumbo .navbar-brand img {
+  width: inherit!important;
+  height: inherit!important;
+  max-width: 50%!important;
+}
+@media (max-width: 1199px) {
+  .banner-jumbo .navbar-brand img {
+    width: auto!important;
+    height: auto!important;
+    max-width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .banner-jumbo .navbar-brand img {
+    width: auto!important;
+    height: auto!important;
+    max-width: 70%;
+  }
+}
+.banner-jumbo .content-box {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #494A4E;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .banner-jumbo .content-box {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .banner-jumbo .content-box {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-jumbo .content-box {
+    width: 1170px;
+  }
+}
+.banner-jumbo .content-box > .navbar-header,
+.banner-jumbo .content-box > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 768px) {
+  .banner-jumbo .content-box > .navbar-header,
+  .banner-jumbo .content-box > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.banner-jumbo .content-box .title {
+  color: #BA141F;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 1.1;
+  margin-top: 80px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .banner-jumbo .content-box .title {
+    font-size: 38px;
+  }
+}
+.banner-jumbo .content-box .content {
+  color: #494A4E;
+  font-size: 17px;
+  max-width: 45%;
+  margin-top: 40px;
+}
+@media (max-width: 767px) {
+  .banner-jumbo .content-box .content {
+    max-width: 100%;
+  }
+}
+.banner-jumbo .overlay-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+  z-index: 9991;
+  background: white;
+}
+@media (max-width: 767px) {
+  .banner-jumbo .overlay-button {
+    right: 15px;
+    top: 0;
+  }
+}
+.banner-jumbo .overlay-button:hover {
+  opacity: .7;
+}
+.banner-jumbo .overlay-button.active .top {
+  transform: translateY(10px) translateX(0) rotate(45deg);
+  background: #494A4E;
+}
+.banner-jumbo .overlay-button.active .middle {
+  opacity: 0;
+  background: #494A4E;
+}
+.banner-jumbo .overlay-button.active .bottom {
+  transform: translateY(-10px) translateX(0) rotate(-45deg);
+  background: #494A4E;
+}
+.banner-jumbo .overlay-button span {
+  background: #494A4E;
+  border: none;
+  height: 5px;
+  width: 26px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+.banner-jumbo .overlay-button span:nth-of-type(2) {
+  top: 20px;
+}
+.banner-jumbo .overlay-button span:nth-of-type(3) {
+  top: 30px;
 }
 .swiper-container {
   width: 100%;

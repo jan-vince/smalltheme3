@@ -4,7 +4,7 @@ $(function() {
 
         e.preventDefault();
 
-        if( $($(this).data('jump')).length ) {
+        if ($($(this).data('jump')).length) {
 
             height = $($(this).data('jump')).offset().top;
 
@@ -15,5 +15,14 @@ $(function() {
         return false;
 
     });
+
+});
+
+
+$('#overlay-button').click(function() {
+
+    $(this).toggleClass('active');
+
+    $('#overlay').toggleClass('open');
 
 });

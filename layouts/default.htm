@@ -21,10 +21,16 @@ childLayout = "default"
 
     <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
 
-        {% partial "header" %}
+        {% if showJumboBanner is empty %}
+            {% partial "header" %}
+        {% endif %}
 
         {% if showBanner %}
-            {% partial "default/banner" %}
+            {% if showJumboBanner %}
+                {% partial "default/banner-jumbo" %}
+            {% else %}
+                {% partial "default/banner" %}
+            {% endif %}
         {% else %}
             {% partial "default/banner-slim" %}
         {% endif %}
@@ -80,6 +86,7 @@ childLayout = "default"
     <!--
 
     {variable tab="Banner" type="checkbox" name="showBanner" label="Show banner" span="full"}{/variable}
+    {variable tab="Banner" type="checkbox" name="showJumboBanner" label="Show big banner with menu" span="full"}{/variable}
     {variable tab="Banner" type="richeditor" name="bannerTitle" label="Title" span="full" size="small"}{/variable}
     {variable tab="Banner" type="richeditor" name="bannerContent" label="Content" span="full"}{/variable}
     {repeater tab="Banner" name="bannerBtns" prompt="Add button" label="Button"}

@@ -54,6 +54,14 @@ form:
                 tab: Branding
                 span: right
 
+            banner_image:
+                label: 'Background banner image'
+                comment: 'If set, this image will be used as banner basckgound image'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Banner
+
             site_title_prefix:
                 label: 'Page title prefix'
                 comment: 'Will be added BEFORE page title'

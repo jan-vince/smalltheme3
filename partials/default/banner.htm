@@ -1,7 +1,7 @@
 description = "Banner"
 ==
 
-<div class="banner">
+<div class="banner" {% if this.theme.banner_image %}style="background-image: url({{this.theme.banner_image|media}});"{% endif %}>
 
     <div class="banner-border-top"></div>
     <div class="banner-border-bottom"></div>
