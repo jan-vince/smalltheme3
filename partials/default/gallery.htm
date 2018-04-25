@@ -1,24 +1,44 @@
 description = "Gallery"
+
+[galleries]
 ==
 
-<div class="gallery" {% if blockId %}id="{{blockId}}"{% endif %}>
+{% if records is empty %}
+    {% set records = galleries.items %}
+{% endif %}
 
-    <div class="container page-content-block">
+<div class="gallery {{ customCss }}" {% if blockId %}id="{{blockId}}"{% endif %}>
+
+    <div class="container">
     
         <div class="row">
 
-            <div class="col-xs-12">
-            
-                <h2 class="title">{{ blockTitle }}</h2>
-            
-            </div>
+            {% if blockTitle or blockContent %}
+
+                <div class="col-xs-12 col-lg-10">
+                
+                    {% if blockTitle %}
+                        <h2 class="title">{{ blockTitle }}</h2>
+                    {% endif %}
+                    
+                    {% if blockContent %}
+                        
+                        <div class="content">{{ blockContent|raw }}</div>
+                    
+                    {% endif %}
+                
+                </div>
+
+            {% endif %}
 
             {% if records|length == 0 %}
                 
                 <div class="col-xs-12">
                     <br>
-                    <p>No images found.</p>
-                    <p>You can add some in backend in Gallery.</p>
+                    <p>No galleries found.</p>
+                    <p>
+                        <em>Let's add some in backend Gallery :)</em>
+                    </p>
 
                 </div>
 
@@ -26,7 +46,7 @@ description = "Gallery"
 
             {% for record in records %}
 
-                <div class="col-xs-12 gallery-box">
+                <div class="col-xs-12 gallery-box {{ loop.first ? 'first-child' }}">
 
                     <h3 class="title">
                         {{ record.name }}
@@ -38,7 +58,7 @@ description = "Gallery"
 
                             <a class="thumbnail" 
                                 href="{{ image.getPath() }}" 
-                                title="{{ image.title ? image.title : (record.name~' - image '~loop.index) }}"
+                                title="{{ image.title ? image.title : (record.name~' / Image '~loop.index) }} {{ image.description ? (' - '~image.description) }}"
                                 style="background-image: url({{ image.getThumb(200,200) }}); "
                                 data-rel="lightcase:{{record.slug}}">
                             </a>

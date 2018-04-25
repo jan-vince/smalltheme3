@@ -1,0 +1,76 @@
+description = "Content block"
+
+[contactForm]
+==
+
+<div class="container page-content-block {{ isContentBlock ? '' : 'title-content-block'}}">
+
+    <div class="row">
+
+        <div class="col-xs-12 {{ contentImage or showContactForm or contentImageAlt ? 'col-md-6' : 'col-lg-10 ' }}">
+        
+            {% if isContentBlock %}
+                <h2 class="title">{{ contentTitle }}</h2>
+            {% else %}
+                <h1 class="title">{{ contentTitle }}</h1>
+            {% endif %}
+
+            {% if contentText %}
+                <div class="content">{{ contentText|raw }}</div>
+            {% endif %}
+
+            {% if contentBtnLink1 or contentBtnLink2 %}
+
+                <div class="content-btns">
+
+                    {% if contentBtnLink1 %}
+
+                        <a href="{{ contentBtnLink1 }}" class="btn btn-primary">{{ contentBtnTitle1 }}</a>
+
+                    {% endif %}
+
+                    {% if contentBtnLink2 %}
+
+                        <a href="{{ contentBtnLink2 }}" class="btn btn-primary">{{ contentBtnTitle2 }}</a>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        {% if contentImage %}
+
+            <div class="col-xs-12 col-md-6">
+
+                <img class="thumbnail" src="{{ contentImage|media }}" alt="{{contentImageAlt ? contentImageAlt : contentTitle}}">
+
+            </div>
+
+        {% elseif contentImageAlt %}
+
+            <div class="col-xs-12 col-md-6">
+
+                <img class="thumbnail thumbnail-fake" src="{{ '/assets/images/default/content/rhondak-native-florida-folk-artist-83553-unsplash.jpg'|theme }}" alt="{{contentImageAlt ? contentImageAlt : contentTitle}}">
+
+            </div>
+
+        {% endif %}
+
+        {% if showContactForm %}
+
+            <div class="col-xs-12 col-md-6 contact-form-container">
+
+                <h3 class="contact-form-title">{{ contactFormTitle ? contactFormTitle : 'Contact us' }}</h3>
+
+                {% component 'contactForm' %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>

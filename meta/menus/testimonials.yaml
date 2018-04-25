@@ -16,3 +16,13 @@ items:
             note: 'Quisque vitae volutpat lorem, ut convallis ante. Aenean quam mi, sagittis et ullamcorper at, posuere id tellus. Phasellus scelerisque in tortor ut euismod. Mauris tempus lacus augue. Nulla condimentum dignissim diam, sit amet bibendum enim.'
             image: ''
             color: ''
+    -
+        title: 'Anna West'
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: 'Sed dui magna, ultrices ut tempor a, laoreet a erat. Ut dolor justo, sodales auctor condimentum sed, dignissim sit amet tortor. Vestibulum viverra, enim sed dignissim porta, orci nibh venenatis massa, in rhoncus enim turpis vitae risus. Praesent nibh neque, consectetur non pulvinar eget, ullamcorper vel ipsum. Praesent eu metus in enim suscipit vehicula.'
+            image: ''

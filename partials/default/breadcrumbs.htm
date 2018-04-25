@@ -15,7 +15,7 @@ description = "Breadcrumbs"
 
                     <li class="home">
 
-                        <a href="{{ '/'|app }}">Úvod</a>
+                        <a href="{{ breadcrumbsHomeLink ? breadcrumbsHomeLink : ('/'|app) }}">{{ breadcrumbsHomeText ? breadcrumbsHomeText : 'Home' }}</a>
 
                     </li>
 

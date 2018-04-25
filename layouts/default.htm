@@ -1,24 +1,21 @@
-description = "Default page"
+description = "Default page layout"
 
 [staticPage]
 useContent = false
 default = true
 childLayout = "default"
 
-[galleries]
 ==
 <?php
 
     function onStart() {
-
         $this['locale'] = App::getLocale();
-
     }
 
 ?>
 ==
 <!DOCTYPE html>
-<html lang="{{ locale ? locale : 'en' }}">
+<html lang="{{ locale ? locale : this.theme.site_default_locale }}">
 
     {% partial "head" %}
 
@@ -26,14 +23,42 @@ childLayout = "default"
 
         {% partial "header" %}
 
-        {% partial "default/banner-slim" %}
+        {% if showBanner %}
+            {% partial "default/banner" %}
+        {% else %}
+            {% partial "default/banner-slim" %}
+        {% endif %}
 
-        {% if contentTitle %}
-            {% partial "page/title-block" %}
+        {% if contentBlocks|length %}
+            
+            {% for contentBlock in contentBlocks %}
+                {% partial "default/page-content-block" 
+                        isContentBlock = showBanner
+                        contentTitle = contentBlock.contentTitle 
+                        contentText = contentBlock.contentText 
+                        contentBtnTitle1 = contentBlock.contentBtnTitle1 
+                        contentBtnLink1 = contentBlock.contentBtnLink1 
+                        contentBtnTitle2 = contentBlock.contentBtnTitle2 
+                        contentBtnLink2 = contentBlock.contentBtnLink2 
+                        contentImage = contentBlock.contentImage 
+                        contentImageAlt = contentBlock.contentImageAlt 
+                        showContactForm = showContactForm 
+                        contactFormTitle = contactFormTitle 
+                %}
+            {% endfor %}
+
+        {% endif %}
+
+        {% if showGalleriesTree %}
+            {% partial "default/gallery" blockTitle = galleryTitle blockContent = galleryText blockId = galleryBlockId  customCss = galleryCss %}
         {% endif %}
 
         {% if showGallery %}
-            {% partial "page/gallery" records = galleries.items blockTitle = 'Enjoy our work' blockId = 'our-work' %}
+            {% partial "default/gallery" blockTitle = galleryTitle blockContent = galleryText blockId = galleryBlockId  customCss = galleryCss %}
+        {% endif %}
+
+        {% if showMap %}
+            {% partial "default/map-seznam" %}
         {% endif %}
 
         {% if showTestimonials %}
@@ -41,7 +66,7 @@ childLayout = "default"
         {% endif %}
 
         {% if showCTA %}
-            {% partial "default/cta" %}
+            {% partial "default/cta" customCTAContent = ctaContent showCTALine = showCTALine %}
         {% endif %}
 
         {% partial "footer" %}
@@ -54,19 +79,64 @@ childLayout = "default"
 
     <!--
 
-    {variable tab="Content" type="text" name="contentTitle" label="Title" span="full" size="small"}{/variable}
-    {variable tab="Content" type="richeditor" name="contentText" label="Content" span="full"}{/variable}
-    {variable tab="Content" type="mediafinder" name="contentImage" label="Image" span="left" mode="image"}{/variable}
-    {variable tab="Content" type="text" name="contentImageAlt" label="Image alt" span="right"}{/variable}
-    {repeater tab="Content" name="contentBtns" prompt="Add button" label="Buttons"}
-        {variable type="text" name="contentBtnTitle" label="Button label" span="left"}{/variable}
-        {variable type="text" name="contentBtnLink" label="Button lin" span="right" comment="Eg.: /contact"}{/variable}
+    {variable tab="Banner" type="checkbox" name="showBanner" label="Show banner" span="full"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerContent" label="Content" span="full"}{/variable}
+    {repeater tab="Banner" name="bannerBtns" prompt="Add button" label="Button"}
+        {variable type="text" name="bannerBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="bannerBtnLink" label="Button link" span="right" comment="Eg.: /contact"}{/variable}
     {/repeater}
 
-    {variable tab="Settings" type="checkbox" name="showTestimonials" label="Show testimonials" span="full"}{/variable}
-    {variable tab="Volby" type="checkbox" name="showGallery" label="Show image gallery" span="left"}{/variable}
-    {variable tab="Settings" type="checkbox" name="showCTA" label="Show CTA" span="left"}{/variable}
-    {variable tab="Settings" type="checkbox" name="showCTALine" label="Add a line above CTA block" span="right"}{/variable}
+    {repeater tab="Content blocks" name="contentBlocks" prompt="Add content block" label="Content block"}
+
+        {variable  type="text" name="contentTitle" label="Title" span="left"}{/variable}
+        {variable  type="richeditor" name="contentText" label="Content" span="full"}{/variable}
+
+        {variable  type="section" name="contentSectionImage" label="Image alt" span="full"}{/variable}
+        {variable  type="mediafinder" name="contentImage" label="Image" span="left" mode="image"}{/variable}
+        {variable  type="text" name="contentImageAlt" label="Image alt" span="right"}{/variable}
+
+        {variable  type="section" name="contentSectionBtns" label="Buttons" span="full"}{/variable}
+        {variable type="text" name="contentBtnTitle1" label="Button 1 label" span="left"}{/variable}
+        {variable type="text" name="contentBtnLink1" label="Button 1 link" span="right" comment="Eg.: /contact"}{/variable}
+        {variable type="text" name="contentBtnTitle2" label="Button 2 label" span="left"}{/variable}
+        {variable type="text" name="contentBtnLink2" label="Button 2 link" span="right" comment="Eg.: https://www.google.com"}{/variable}
+        
+        {variable  type="section" name="contentSectionEnd" span="full"}{/variable}
+
+    {/repeater}
+
+
+    {variable tab="Gallery" type="checkbox" name="showGallery" label="Show galleries and photos" span="full"}{/variable}
+    {variable tab="Gallery" type="text" name="galleryTitle" label="Title" span="full"}{/variable}
+    {variable tab="Gallery" type="richeditor" name="galleryText" label="Content" span="full"}{/variable}
+    {variable tab="Gallery" type="section" name="gallerySection1"}{/variable}
+    {variable tab="Gallery" type="text" name="galleryBlockId" label="Custom gallery block ID" span="left"}{/variable}
+    {variable tab="Gallery" type="text" name="galleryCss" label="Custom gallery block class" span="right"}{/variable}
+
+    {variable tab="Testimonials" type="checkbox" name="showTestimonials" label="Show testimonials" span="full"}{/variable}
+
+    {variable tab="Map" type="checkbox" name="showMap" label="Show map" span="full"}{/variable}
+    {variable tab="Map" type="section" label="Map center and zoom" span="full"}
+    {variable tab="Map" type="text" name="mapLat" label="Latitude" span="left" comment="Eg.: 49.5626336"}{/variable}
+    {variable tab="Map" type="text" name="mapLng" label="Longitude" span="right" comment="Eg.: 15.9392406"}{/variable}
+    {variable tab="Map" type="text" name="mapZoom" label="Zoom" span="full" comment="Number 1-20"}{/variable}
+
+    {repeater tab="Map" name="mapPins" prompt="Přidat bod na mapu" label="Body na mapě"}
+        {variable tab="Map" type="text" name="mapPinTitle" label="Název bodu" span="full"}{/variable}
+        {variable tab="Map" type="text" name="mapPinLat" label="Zeměpisná délka" span="left" comment="Např.: 49.5626336"}{/variable}
+        {variable tab="Map" type="text" name="mapPinLng" label="Zeměpisná šířka" span="right" comment="Např.: 15.9392406"}{/variable}
+        {variable type="richeditor" name="mapPinContent" label="Text u připínáčku v mapě" span="full" commentAbove="Text se zobrazí po klepnutí na symbol připínáčku v mapě"}{/variable}
+    {/repeater}
+
+    {variable tab="Contact form" type="checkbox" name="showContactForm" label="Show contact form" span="left"}{/variable}
+    {variable tab="Contact form" type="text" name="contactFormTitle" label="Title" span="full"}{/variable}
+    {variable tab="Contact form" type="richeditor" name="contactFormContent" label="Content" span="full"}{/variable}
+
+    {variable tab="CTA" type="checkbox" name="showCTA" label="Show CTA block" span="full"}{/variable}
+    {variable tab="CTA" type="checkbox" name="showCTALine" label="Add a line above the CTA block" span="full"}{/variable}
+    {variable tab="CTA" type="section" name="ctaSection1"}{/variable}
+    {variable tab="CTA" type="richeditor" name="ctaContent" label="Custom CTA content" span="full" commentAbove="Default CTA will be replaced by this content - for this page only."}{/variable}
 
     -->
 

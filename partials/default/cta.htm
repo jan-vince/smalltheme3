@@ -19,7 +19,9 @@ description = "CTA"
 
             <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cta-content">
 
-                {% if content("cta.htm") %}
+                {% if customCTAContent %}
+                    {{ customCTAContent|raw }}
+                {% elseif content("cta.htm") %}
                     {% content "cta.htm" %}
                 {% endif %}
 

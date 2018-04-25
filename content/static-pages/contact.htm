@@ -1,12 +1,12 @@
 [viewBag]
 title = "Contact"
 url = "/contact"
-layout = "contact"
+layout = "default"
 is_hidden = 0
 navigation_hidden = 0
-contentTitle = "Contact"
-showContactform = 1
-contentText = "<h3>John Doe</h3>
+showBanner = 0
+contentBlocks[0][contentTitle] = "Contact"
+contentBlocks[0][contentText] = "<h3>John Doe</h3>
 
 <p><a href=\"mailto:info@localhost\">info@localhost</a></p>
 
@@ -19,12 +19,21 @@ contentText = "<h3>John Doe</h3>
 <h3>Business info</h3>
 
 <p>ID: 123456789</p>"
-mapLat = 49.0000000
-mapLng = 15.0000000
+contentBlocks[0][contentImage] = ""
+contentBlocks[0][contentImageAlt] = ""
+contentBlocks[0][contentBtnTitle1] = ""
+contentBlocks[0][contentBtnLink1] = ""
+contentBlocks[0][contentBtnTitle2] = ""
+contentBlocks[0][contentBtnLink2] = ""
+showGallery = 0
+showTestimonials = 0
+showMap = 1
+mapLat = 49.5626336
+mapLng = 15.9392406
 mapZoom = 17
 mapPins[0][mapPinTitle] = "John Doe"
-mapPins[0][mapPinLat] = 49.0000000
-mapPins[0][mapPinLng] = 15.0000000
+mapPins[0][mapPinLat] = 49.5626336
+mapPins[0][mapPinLng] = 15.9392406
 mapPins[0][mapPinContent] = "<p><strong>John Doe</strong>
 	<br><a href=\"mailto:info@localhost\">info@localhost</a></p>
 
@@ -32,8 +41,8 @@ mapPins[0][mapPinContent] = "<p><strong>John Doe</strong>
 	<br>My street 1
 	<br>City
 	<br>12345</p>"
-showMap = 1
+showContactForm = 1
+contactFormTitle = "We are listening!"
 showCTA = 1
 showCTALine = 0
-showFooter = 0
 ==

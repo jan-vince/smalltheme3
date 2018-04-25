@@ -5251,14 +5251,6 @@ h6 {
 .layout-default .testimonials {
   margin-top: 120px;
 }
-.layout-contact .title-content-block h3 {
-  margin-top: 40px;
-  margin-bottom: 5px;
-}
-.layout-contact .title-content-block .contact-form-title {
-  margin-top: 100px;
-  margin-bottom: 20px;
-}
 /**
 *    Partials
 */
@@ -5827,14 +5819,24 @@ h6 {
     margin-top: 60px;
   }
 }
+.page-content-block .thumbnail-fake {
+  border-radius: 1000px;
+  padding: 30px;
+}
 .title-content-block {
   margin-top: 30px;
 }
 .gallery .title {
   margin-bottom: 0;
 }
+.gallery .content {
+  margin-top: 20px;
+}
 .gallery .gallery-box {
   margin-top: 60px;
+}
+.gallery .gallery-box.first-child {
+  margin-top: 40px;
 }
 .gallery .gallery-box .thumbnail {
   display: inline-block;
@@ -5854,4 +5856,8 @@ h6 {
 }
 .gallery .gallery-box .thumbnail:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.contact-form-container .contact-form-title {
+  margin-top: 80px;
+  margin-bottom: 20px;
 }

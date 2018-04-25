@@ -79,6 +79,12 @@ form:
                 type: checkbox
                 span: left
                 tab: SEO
+            site_default_locale:
+                label: 'Default locale'
+                comment: 'If set, will be used in <html lang=""> tag.'
+                default: 'en'
+                tab: SEO
+
             google_ua_id:
                 label: 'Google UA tracking ID'
                 comment: 'If set, UA tracking code will be included in all pages.'
@@ -178,6 +184,7 @@ form:
 
 require:
     - RainLab.Pages
+    - RainLab.Blog
     - RainLab.Sitemap
     - RainLab.GoogleAnalytics
     - JanVince.SmallExtensions

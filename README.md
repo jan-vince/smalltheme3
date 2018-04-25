@@ -24,7 +24,20 @@ Update settings in *Settings > Front-end theme > Customize (SmallTheme 3)*.
 
 ### JavaScript files
 
-There is a default JS combiner setup in  ```/partials/scripts.htm```.
+There is a default JS combiner setup in  ````/partials/scripts.htm````.
+
+
+### Plugins
+
+This theme will use some of my plugins to show galleries, testimonials, records and contact form.
+
+#### Small Extensions
+
+* Allow Menu notes and Menu images in ````Settings > Small Extensions > Static Pages```` to be able to edit testimonials that are located in ````Pages > Menus > Testimonials````.
+
+#### Small Contact Form
+
+* Add some form fields in ````Settings > Small Contact Form```` to be able to use contact form on Contact page.
 
 
 ## Misc
@@ -46,6 +59,7 @@ To update vendor files, run command in terminal (in theme root folder): ```bower
 > Thanks to:    
 > [OctoberCMS](http://www.octobercms.com) team members and supporters for this great system.    
 > [Ronald Cuyan](https://unsplash.com/@ronaldcuyan) for his photo I have used in the theme preview.    
+> [Rhonda Kay](https://unsplash.com/@rhondak) for her photos I have used in the theme.    
 > [Font Awesome](http://www.fontawesome.io) for great icons.
 
 Created by [Jan Vince](http://www.vince.cz), freelance web designer from Czech Republic.

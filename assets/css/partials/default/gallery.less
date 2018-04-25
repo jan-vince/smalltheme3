@@ -6,10 +6,15 @@
         margin-bottom: 0;
     }
 
+    .content {
+        margin-top: @standard;
+    }
+
     .gallery-box {
         margin-top: @xlarge;
 
-        .title {
+        &.first-child {
+            margin-top: @large;
         }
 
         .thumbnail {
@@ -32,4 +37,5 @@
             }
         }
     }
+
 }

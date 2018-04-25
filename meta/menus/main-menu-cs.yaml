@@ -33,11 +33,39 @@ items:
             image: ''
             color: ''
     -
+        title: Galerie
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: ''
+        reference: gallery
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'O nás'
+        nesting: '1'
+        type: static-page
+        code: ''
+        reference: about-us
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
         title: Kontakt
         nesting: '0'
         type: static-page
+        url: ''
         code: ''
         reference: contact
+        cmsPage: ''
         replace: '0'
         viewBag:
             isHidden: '0'

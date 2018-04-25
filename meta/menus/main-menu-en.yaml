@@ -20,8 +20,36 @@ items:
         title: 'Our work'
         nesting: '0'
         type: static-page
+        url: ''
         code: ''
         reference: our-work
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: Gallery
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: ''
+        reference: gallery
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'About us'
+        nesting: '1'
+        type: static-page
+        code: ''
+        reference: about-us
         replace: '0'
         viewBag:
             isHidden: '0'
