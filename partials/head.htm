@@ -1,7 +1,6 @@
 description = "Head"
 ==
 <?php
-
 function onEnd() {
 
     /*
@@ -26,102 +25,91 @@ function onEnd() {
     $this->page->meta_title = $title;
 
 }
-
 ?>
-
 ==
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="environment" content="{{ this.environment }}">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="environment" content="{{ this.environment }}">
 
-    <title property="og:title">{{ this.page.meta_title ? this.page.meta_title : this.page.title }}</title>
+      <title property="og:title">{{ this.page.meta_title ? this.page.meta_title : this.page.title }}</title>
 
-    {% if this.page.meta_description %}
-    <meta name="description"
-          property="og:description"
-          content="{{ this.page.meta_description }}">
-    {% endif %}
+      {% if this.page.meta_description %}
+      <meta name="description"
+            property="og:description"
+            content="{{ this.page.meta_description }}">
+      {% endif %}
 
-    {% if this.template.author %}
-    <meta name="author"
-          content="{{ this.template.author }}">
-    {% endif %}
+      {% if this.template.author %}
+      <meta name="author"
+            content="{{ this.template.author }}">
+      {% endif %}
 
-    {% if this.theme.humans_allow %}
-        <link type="text/plain"
-              rel="author"
-              href="{{ 'default/humans'|page }}" />
-    {% endif %}
+      {% if this.theme.humans_allow %}
+      <link type="text/plain"
+            rel="author"
+            href="{{ 'default/humans'|page }}" />
+      {% endif %}
 
-    {% if this.template.site_name %}
-    <meta property="og:site_name"
-          content="{{ this.theme.site_name }}"/>
-    {% endif %}
+      {% if this.template.site_name %}
+      <meta property="og:site_name"
+            content="{{ this.theme.site_name }}"/>
+      {% endif %}
 
-    {% if locale %}
-    <meta property="og:locale"
-          content="{{ locale=='cs' ? 'cs_CZ' : 'en_US' }}" />
-    {% endif %}
+      {% if locale %}
+      <meta property="og:locale"
+            content="{{ locale=='cs' ? 'cs_CZ' : 'en_US' }}" />
+      {% endif %}
 
-    <meta property="og:image"
-          content="{{ ogImage ? ogImage|app : ('assets/images/theme-preview.png')|theme }}" />
+      <meta property="og:image"
+            content="{{ ogImage ? ogImage|app : ('assets/images/theme-preview.png')|theme }}" />
 
 
-    {% if robots %}
-    <meta name="robots"
-          content="{{ robots }}">
-    {% endif %}
+      {% if robots %}
+      <meta name="robots"
+            content="{{ robots }}">
+      {% endif %}
 
-    {% if canonical %}
-        <link rel="canonical"
-              href="{{ canonical }}">
-    {% else %}
-        {% if this.page.id|page %}
+      {% if canonical %}
+      <link rel="canonical"
+            href="{{ canonical }}">
+      {% else %}
+            {% if this.page.id|page %}
             <link rel="canonical"
                   href="{{ this.param.slug ? this.page.id|page({'slug':this.param.slug}) : this.page.id|app }}">
-        {% elseif page.id|staticPage %}
+            {% elseif page.id|staticPage %}
             <link rel="canonical"
                   href="{{ page.id|staticPage }}">
-        {% endif %}
-    {% endif %}
+            {% endif %}
+      {% endif %}
 
-    <link rel="icon"
-          href="{{ 'assets/images/favicon.png'|theme}}"
-          type="image/png">
+      <link rel="icon"
+            href="{{ 'assets/images/favicon.png'|theme}}"
+            type="image/png">
 
-    <link rel="apple-touch-icon"
-          href="{{ 'assets/images/favicon.png'|theme}}"
-          type="image/png">
+      <link rel="apple-touch-icon"
+            href="{{ 'assets/images/favicon.png'|theme}}"
+            type="image/png">
 
-    <!--[if IE]>
-    <link rel="shortcut icon" href="{{ "assets/images/favicon.ico"|theme}}">
-    <![endif]-->
+      <!--[if IE]>
+      <link rel="shortcut icon" href="{{ "assets/images/favicon.ico"|theme}}">
+      <![endif]-->
 
-    <!--[if lt IE 9]>
-    <script src="{{ "assets/vendor/html5shiv/dist/html5shiv-printshiv.min.js"|theme}}"></script>
-    <script src="{{ "assets/vendor/respond/dest/respond.min.js"|theme}}"></script>
-    <![endif]-->
+      <!--[if lt IE 9]>
+      <script src="{{ "assets/vendor/html5shiv/dist/html5shiv-printshiv.min.js"|theme}}"></script>
+      <script src="{{ "assets/vendor/respond/dest/respond.min.js"|theme}}"></script>
+      <![endif]-->
 
-    {% if this.environment != 'dev' %}
+      {% partial 'default/analytics' %}
 
-        {% partial 'default/analytics' %}
+      {% if this.environment == 'dev' %}
+      <link rel="stylesheet"
+            href="{{ 'assets/css/styles.css' |theme }}">
+      {% else %}
+      <link rel="stylesheet"
+            href="{{ ['assets/css/styles.less'] |theme }}.css">
+      {% endif %}
 
-    {% endif %}
-
-{#      October internal combiner
-
-        <link rel="stylesheet"
-              href="{{ ['assets/css/styles.less'] |theme }}.css">
-#}
-
-{#      Externally compiled CSS file #}
-
-        <link rel="stylesheet"
-                href="{{ 'assets/css/styles.css' |theme }}">
-
-    {% styles %}
-
-	{#    <link rel="alternate" type="application/rss+xml" href="{{ '/'|app }}/rss" title="Blog RSS" /> #}
+      {% styles %}
 
 </head>

@@ -16,7 +16,22 @@ description = "Google Analytics"
         }
         )(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', '{{ this.theme.google_ua_id }}', 'auto');
+
+        {% if this.theme.google_ua_anonymize %}
+            ga('set', 'anonymizeIp', true);
+        {% endif %}
+        
+        {% if this.theme.google_ua_force_ssl %}
+            ga('set', 'forceSSL', true);
+        {% endif %}
+        
         ga('send', 'pageview');
 
     </script>
+{% endif %}
+
+{% if this.theme.seznam_wmt_id %}
+
+    <meta name="seznam-wmt" content="{{this.theme.seznam_wmt_id}}" />
+
 {% endif %}

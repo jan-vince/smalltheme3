@@ -7,10 +7,11 @@ code = "main-menu-en"
 
 [staticMenu main_menu_cs]
 code = "main-menu-cs"
+
+[staticMenu footer_links_menu_cs]
+code = "footer-links-menu-cs"
 ==
 <footer id="footer" class="footer">
-
-    <div class="footer-border"></div>
 
     <div class="container">
 
@@ -43,39 +44,29 @@ code = "main-menu-cs"
 
             </div>
 
-            <div class="col-xs-12 col-sm-3 col-sm-offset-1 footer-menu">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-1 footer-menu">
 
-                <h2 class="title">Menu</h2>
-
-                {% set items = attribute(_context, ('main_menu_en') ).menuItems %}
+                <div class="border-block">
                 
-                {#  Uncomment for locale specific menu 
+                    <h2 class="title">MAIN MENU</h2>
+
                     {% set items = attribute(_context, ('main_menu_'~locale) ).menuItems %}
-                #}
 
-                {% partial 'default/menu-items' items=items class='footer-menu-nav' %}
+                    {% partial 'default/menu-items' items=items class='footer-menu-nav' %}
 
-            </div>
-
-{#          Form
-            <div class="col-xs-12 col-sm-4 col-sm-offset-1 footer-form">
-
-                <h2 class="title">Napište mi, ráda odpovím</h2>
-
-                {% component "contactFormFooter" %}
+                </div>
 
             </div>
-#}
 
-            <div class="col-xs-12 col-sm-5 footer-contact">
+            <div class="col-xs-12 col-sm-4 footer-menu">
 
-                <p class="phone">
-                    +420 <strong>123 456 789</strong>
-                </p>
+                <div class="border-block">
+                
+                    <h2 class="title">CONTACT</h2>
 
-                <p class="mail">
-                    <a href="mailto:info@localhost">info@localhost</a>
-                </p>
+                    {% content 'footer-contacts' %}
+
+                </div>
 
             </div>
 
@@ -91,7 +82,7 @@ code = "main-menu-cs"
             
                 <p class="author">
                 
-                    <a href="https://www.vince.cz"><strong>Vince</strong> Webdesign</a>
+                    {% content 'footer-author' %}
                 
                 </p>
             

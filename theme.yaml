@@ -98,6 +98,28 @@ form:
                 comment: 'If set, UA tracking code will be included in all pages.'
                 default: ''
                 tab: Analytics
+            google_ua_anonymize:
+                label: 'Anonymize IP'
+                comment: 'If set, IP anonymization for visitors will be activated.'
+                default: false
+                type: checkbox 
+                tab: Analytics
+            google_ua_force_ssl:
+                label: 'Force SSL'
+                comment: 'If set, SSL will be used to send data to Google.'
+                default: false
+                type: checkbox
+                tab: Analytics
+            analytics_section:
+                type: section
+                tab: Analytics
+            seznam_wmt_id:
+                label: 'Seznam.cz head meta tag content'
+                comment: 'Add your Seznam.cz webmaster code'
+                default: ''
+                type: text
+                tab: Analytics
+
             schema_generate:
                 label: 'Generate Schema.org info'
                 comment: 'Will add schema.org data'
