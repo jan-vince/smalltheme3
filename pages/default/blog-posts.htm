@@ -1,0 +1,59 @@
+title = "Blog posts"
+url = "/blog/:page"
+layout = "blog"
+is_hidden = 0
+==
+<?php
+use RainLab\Blog\Models\Post;
+use Cms\Classes\Layout;
+
+    function onEnd() {
+
+        $theme = Cms\Classes\Theme::getEditTheme();
+        $pageList = new RainLab\Pages\Classes\PageList($theme);
+
+        $pages = $pageList->listPages();
+
+        foreach($pages as $page) {
+
+            if($page->id == 'blog') {
+
+                foreach($page->viewBag as $key => $value) {
+                    $this[$key] = $value;
+                }
+            }
+        }
+
+        $this['breadcrumbs'] = [
+            'blog' => [
+                'title' => 'Blog',
+                'url' => url('blog'),
+                'isActive' => true
+            ]
+        ];
+
+        /**
+        *   SEO redirect
+        */
+        if ($this->param('page') and $this->param('page') == 1) {
+            return Redirect::to('/blog');
+        } 
+
+        if($this->param('page') and ( $this->param('page') > 0 and $this->param('page') <= $this->posts->lastPage() )){
+            $this->page->title = 'Blog (page ' . $this->param('page') . ')';
+            $this->page->meta_title = 'Blog (page ' . $this->param('page') . ')';
+            $this['robots'] = 'noindex, follow';
+        } elseif($this->param('page') and ( $this->param('page') < 1 or $this->param('page') > $this->posts->lastPage() ) ) {
+            //return $this->controller->run('404');
+            return Redirect::to('/blog');
+        }
+    }
+
+    function onInit(){
+        $this['slug'] = $this->param('slug');
+    }
+
+?>
+
+==
+

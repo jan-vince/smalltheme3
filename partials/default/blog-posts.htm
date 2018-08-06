@@ -1,0 +1,68 @@
+description = "Blog posts list"
+==
+
+<div class="posts-list">
+    
+    {% for item in items %}
+
+        <div class="post {{ cssClass }}">
+
+            {% if disableMeta is empty %}
+            
+                <div class="meta">
+                    
+                    <p class="date">{{ item.published_at|date('j.n.Y') }}</p>
+                    
+                    <p class="category">
+
+                        {% if item.categories|length %}
+
+                            {% for category in item.categories %}
+
+                                <a href="{{categoryPage|page({(categoryPageSlug):category.slug})}}">{{ category.name }}</a>{% if loop.last is empty %}, {% endif %}
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    </p>
+
+                </div>
+            
+            {% endif %}
+            
+            <{{ titleTag ? titleTag : 'h2'}} class="title">
+            
+                <strong>
+                
+                    <a href="{{ item.url ? item.url : blogPostPage|page({(blogPostPageSlug):item.slug}) }}">{{ item.title }}</a>
+                
+                </strong>
+                
+            </{{ titleTag ? titleTag : 'h2'}}>
+
+            {% if excerptLength is empty %}
+                {% set excerptLength = 300 %}
+            {% endif %}
+
+            {% if disableExcerpt is empty %}
+                <div class="content">
+                    {{ item.content|raw|striptags|replace({'&nbsp;':' '})|slice(0,excerptLength) }}{{ item.content|raw|striptags|length>excerptLength ? '...'}}
+                </div>
+            {% endif %}
+
+            <p class="read-more">
+                <a class="btn-link" href="{{ item.url ? item.url : blogPostPage|page({(blogPostPageSlug):item.slug}) }}">Read more</a>
+            </p>
+        </div>
+
+    {% endfor %}
+
+
+    {% if disablePaginator is empty %}
+
+        {% partial "default/paginator" paginator = items page = 'default/blog-posts' slug = 'page' %}
+
+    {% endif %}
+
+</div>

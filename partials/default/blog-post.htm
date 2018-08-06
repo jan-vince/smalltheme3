@@ -1,0 +1,47 @@
+description = "Blog - detail"
+==
+<div class="posts-list">
+
+    {% if backLink %}
+        <a class="btn-link-reverse" {% if disableJSBackLink is empty %}onclick="if ( document.referrer.split('/')[3] == 'blog') { window.history.go(-1); return false; }"{% endif %} href="{{backLink}}">{{backLinkText}}</a>
+    {% endif %}
+
+    <div class="post {{ cssClass }}">
+
+        <div class="meta">
+            
+            <p class="date">{{ item.published_at|date('j.n.Y') }}</p>
+            
+            <p class="category">
+
+                {% if item.categories|length %}
+
+                    {% for category in item.categories %}
+
+                        <a href="{{categoryPage|page({(categoryPageSlug):category.slug})}}">{{ category.name }}</a>{% if loop.last is empty %}, {% endif %}
+
+                    {% endfor %}
+
+                {% endif %}
+
+            </p>
+
+        </div>
+        
+        <h2 class="title">
+        
+            <strong>
+            
+                <a href="{{ item.url ? item.url : blogPostPage|page({(blogPostPageSlug):item.slug}) }}">{{ item.title }}</a>
+            
+            </strong>
+            
+        </h2>
+
+        <div class="content">
+            {{ item.content|raw }}
+        </div>
+    
+    </div>
+
+</div>

@@ -1,0 +1,51 @@
+title = "Blog category"
+url = "/blog/category/:category"
+layout = "blog"
+is_hidden = 0
+==
+<?php
+use RainLab\Blog\Models\Post;
+use Cms\Classes\Layout;
+
+    function onStart() {
+        $theme = Cms\Classes\Theme::getEditTheme();
+        $pageList = new RainLab\Pages\Classes\PageList($theme);
+
+        $pages = $pageList->listPages();
+
+        foreach($pages as $page) {
+
+            if($page->id == 'blog') {
+
+                foreach($page->viewBag as $key => $value) {
+                    $this[$key] = $value;
+                }
+            }
+        }
+
+        $this['breadcrumbs'] = [
+            'blog' => [
+                'title' => 'Blog',
+                'url' => url('blog'),
+                'isActive' => true
+            ]
+        ];
+
+    }
+
+    function onEnd() {
+
+        if( $this->category ){
+
+            $this->page->title = $this->page->meta_title = 'Blog: ' . $this->category->name;
+            $this->page->meta_description = strip_tags($this->category->description);
+            $this['activeMenuItem'] = $this->category->slug;
+
+        } elseif($this->param('category') and !$this->category) {
+            return $this->controller->run('404');
+        }
+    }
+
+?>
+
+==

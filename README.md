@@ -15,6 +15,11 @@ git clone https://github.com/jan-vince/smalltheme3.git
 
 This theme is build with [Bootstrap 3 framework](https://getbootstrap.com/docs/3.3/) and is based on one of my designs.
 
+The main idea behind this is to have a single place to put all enhancements from my new projects to be able to reuse them in the future.
+
+I'm keeping all files in ````default```` folders intact and always create ````custom```` folders with edited original files.
+
+
 ### Basic stuff
 
 Update settings in *Settings > Front-end theme > Customize (SmallTheme 3)*.

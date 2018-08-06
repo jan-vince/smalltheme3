@@ -1,0 +1,102 @@
+description = "Blog posts list layout"
+
+[staticPage]
+useContent = false
+default = true
+childLayout = "default"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :category }}"
+postsPerPage = 6
+noPostsMessage = "No posts"
+sortOrder = "published_at desc"
+categoryPage = "default/blog-category"
+postPage = "default/blog-post"
+
+[blogCategories]
+slug = "{{ :category }}"
+displayEmpty = 0
+categoryPage = "default/blog-category"
+
+==
+<?php
+
+    function onStart() {
+        $this['locale'] = App::getLocale();
+        $this['activeMenuItem'] = 'blog';
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : this.theme.site_default_locale }}">
+
+    {% partial "head" %}
+
+    <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
+
+        {% if showJumboBanner is empty %}
+            {% partial "header" %}
+        {% endif %}
+
+        {% if showBanner %}
+            {% if showJumboBanner %}
+                {% partial "default/banner-jumbo" %}
+            {% else %}
+                {% partial "default/banner" %}
+            {% endif %}
+        {% else %}
+            {% partial "default/banner-slim" %}
+        {% endif %}
+
+        <div class="container">
+        
+            <div class="row">
+
+                <div class="col-xs-12 blog">
+                            
+                    {% partial "default/blog-categories-list" 
+                            items = blogCategories.categories 
+                            customCss = 'breadcrumbs'
+                            categoryPage = blogCategories.categoryPage
+                            categoryPageSlug = blogCategories.paramName('slug')
+                    %}
+
+                    {% partial "default/blog-posts" 
+                            items = blogPosts.posts 
+                            blogCategoryPage = blogPosts.categoryPage
+                            blogPostPage = blogPosts.postPage
+                            blogPostPageSlug = 'slug'
+                            categoryPage = blogCategories.categoryPage
+                            categoryPageSlug = blogCategories.paramName('slug')
+                    %}
+
+                </div>
+            
+            </div>
+
+        </div>
+
+        {% partial "footer" %}
+
+        {% partial "scripts" %}
+
+        {% scripts %}
+
+    </body>
+
+    <!--
+
+    {variable tab="Banner" type="checkbox" name="showBanner" label="Show banner" span="full"}{/variable}
+    {variable tab="Banner" type="checkbox" name="showJumboBanner" label="Show big banner with menu" span="full"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerTitle" label="Title" span="full" size="small"}{/variable}
+    {variable tab="Banner" type="richeditor" name="bannerContent" label="Content" span="full"}{/variable}
+    {repeater tab="Banner" name="bannerBtns" prompt="Add button" label="Button"}
+        {variable type="text" name="bannerBtnTitle" label="Button label" span="left"}{/variable}
+        {variable type="text" name="bannerBtnLink" label="Button link" span="right" comment="Eg.: /contact"}{/variable}
+    {/repeater}
+
+    -->
+
+</html>

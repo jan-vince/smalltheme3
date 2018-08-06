@@ -1,0 +1,60 @@
+title = "Blog post"
+url = "/blog/detail/:slug"
+layout = "blog-post"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "custom/blog-category"
+==
+<?php
+use RainLab\Blog\Models\Post;
+use Cms\Classes\Layout;
+
+    function onEnd() {
+
+        $theme = Cms\Classes\Theme::getEditTheme();
+        $pageList = new RainLab\Pages\Classes\PageList($theme);
+
+        $pages = $pageList->listPages();
+
+        foreach($pages as $page) {
+
+            if($page->id == 'blog') {
+
+                foreach($page->viewBag as $key => $value) {
+                    $this[$key] = $value;
+                }
+            }
+        }
+
+        if($this->param('slug') and $this->post) {
+            $this->page->meta_title = $this->page->meta_title = $this->post->title;
+            $this->page->meta_description = strip_tags($this->post->summary);
+
+            if($this->post->featured_images->first() and !empty($this->post->featured_images->first()->getThumb(600, 600))){
+                $this['ogImage'] = $this->post->featured_images->first()->getThumb(600, 600);
+            }
+
+        } elseif($this->param('slug') and !$this->post) {
+            return $this->controller->run('404');
+        }
+
+        $this['breadcrumbs'] = [
+            'blog' => [
+                'title' => 'Blog',
+                'url' => url('blog'),
+                'isActive' => true
+            ]
+        ];
+
+    }
+
+    function onInit(){
+        $this['slug'] = $this->param('slug');
+    }
+
+?>
+
+==
+{% partial 'default/blog-post' item = blogPost.post backLink = ('blog'|staticPage) backLinkText = "Back to posts" %}

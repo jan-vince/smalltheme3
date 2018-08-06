@@ -1,0 +1,98 @@
+description = "Paginator"
+==
+
+{% if maxShownPagesKeep is empty %}
+    {# How many pages will be visible from both ends #}
+    {% set maxShownPagesKeep = 4 %}
+{% endif %}
+
+{% if paginator.lastPage > ( 2 * maxShownPagesKeep ) %}
+    {% set isPaginationLimited = true %}
+    {% set hasLeftDots = false %}
+    {% set hasRightDots = false %}
+{% endif %}
+
+
+<div class='paginator-container'>
+
+    {% if paginator.lastPage > 1 %}
+        
+        <ul class="pagination">
+        
+            <li class="{{ (paginator.currentPage <= 1) ? 'disabled' }}">
+            
+                {% if paginator.currentPage > 1 %}
+                    <a href="{{ (page)|page( {(slug):(paginator.currentPage-1)} )}}">
+                {% else %}
+                    <a href="{{ (page)|page( {(slug):(paginator.currentPage)} )}}">
+                {% endif %}
+                    
+                    &larr; Předchozí
+                
+                </a>
+                
+            </li>
+
+            {% for pg in 1..paginator.lastPage %}
+                
+                {% if isPaginationLimited %}
+                
+                    {% if hasLeftDots is empty and pg > maxShownPagesKeep and paginator.currentPage != pg %}
+                        {# Add left empty field#}
+
+                            <li class="empty">
+                                <a href="#">...</a>
+                            </li>
+                        
+                            {% set hasLeftDots = true %}
+
+                            {% if pg > paginator.currentPage %}
+                                {% set hasRightDots = true %}
+                            {% endif %}
+
+                            {% if pg < (paginator.lastPage - maxShownPagesKeep) %}
+                                {% set hasRightDots = true %}
+                            {% endif %}
+
+                    {% endif %}
+
+                    {% if hasRightDots is empty and hasLeftDots is not empty and paginator.currentPage > maxShownPagesKeep and paginator.currentPage < pg %}
+                        {# Add right empty field#}
+
+                            <li class="empty">
+                                <a href="#">...</a>
+                            </li>
+                        
+                            {% set hasRightDots = true %}
+
+                    {% endif %}
+
+                {% endif %}
+
+                {% if hasLeftDots is empty or ( hasLeftDots is not empty and paginator.currentPage == pg) or ( hasRightDots is not empty and pg > (paginator.lastPage - maxShownPagesKeep) )  %}
+                    <li class="{{ (paginator.currentPage == pg) ? 'active' }}">
+                        <a href="{{ (page)|page({ (slug): pg } )}}">{{ pg }}</a>
+                    </li>
+                {% endif %}    
+
+            {% endfor %}
+
+            <li class="{{ (paginator.currentPage >= paginator.lastPage) ? 'disabled' }}">
+            
+                {% if paginator.currentPage < paginator.lastPage %}
+                    <a href="{{ (page)|page({(slug):(paginator.currentPage+1)})}}">
+                {% else %}
+                    <a href="{{ (page)|page({(slug):(paginator.currentPage)})}}">
+                {% endif %}
+                
+                    Další &rarr;
+                
+                </a>
+                
+            </li>
+
+        </ul>
+    
+    {% endif %}
+
+</div>

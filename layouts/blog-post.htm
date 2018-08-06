@@ -1,0 +1,79 @@
+description = "Blog post detail"
+
+[staticPage]
+useContent = false
+default = true
+childLayout = "page"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :category }}"
+postsPerPage = 12
+noPostsMessage = "Žádné články nebyly nalezeny"
+sortOrder = "published_at desc"
+categoryPage = "default/blog-category"
+postPage = "default/blog-post"
+
+[blogCategories]
+slug = "{{ :category }}"
+displayEmpty = 0
+categoryPage = "default/blog-category"
+
+==
+<?php
+
+    function onStart() {
+        $this['locale'] = App::getLocale();
+        $this['activeMenuItem'] = 'oznameni';
+    }
+
+?>
+==
+<!DOCTYPE html>
+<html lang="{{ locale ? locale : this.theme.site_default_locale }}">
+
+    {% partial "head" %}
+
+    <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
+
+        {% if showJumboBanner is empty %}
+            {% partial "header" %}
+        {% endif %}
+
+        {% if showBanner %}
+            {% if showJumboBanner %}
+                {% partial "default/banner-jumbo" %}
+            {% else %}
+                {% partial "default/banner" %}
+            {% endif %}
+        {% else %}
+            {% partial "default/banner-slim" %}
+        {% endif %}
+
+        <div class="container">
+        
+            <div class="row">
+
+                <div class="col-xs-12 blog">
+
+                    {% page %}
+
+                </div>
+            
+            </div>
+
+        </div>
+
+        {% partial "footer" %}
+
+        {% partial "scripts" %}
+
+        {% scripts %}
+
+    </body>
+
+    <!--
+
+    -->
+
+</html>

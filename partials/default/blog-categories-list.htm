@@ -1,0 +1,40 @@
+description = "Blog categories menu"
+
+[viewBag]
+==
+
+<div class="categories-list">
+
+	<ul class="categories">
+
+		<li class="title">
+
+			<strong>Category:</strong>
+
+		</li>
+
+		<li {% if this.param[categoryPageSlug] == '' %}class="active"{% endif %}>
+
+			<a href="{{ 'blog'|staticPage }}">{{ 'All' }}</a>
+
+		</li>
+
+		{% for category in items %}
+
+			{% set postCount = category.post_count %}
+
+			<li {% if category.slug == this.param[categoryPageSlug] %}class="active"{% endif %}>
+
+				<a href="{{categoryPage|page({(categoryPageSlug):category.slug})}}">{{ category.name }}</a>
+{#}
+				{% if postCount %}
+					<span class="badge">{{ postCount }}</span>
+				{% endif %}
+#}
+			</li>
+
+		{% endfor %}
+
+	</ul>
+
+</div>
