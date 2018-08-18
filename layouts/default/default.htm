@@ -21,7 +21,8 @@ childLayout = "default"
 
     <body class="layout-{{ this.layout.id }} page-{{ page.id ? page.id : this.page.id }}">
 
-        {% if showJumboBanner is empty %}
+        {% if showJumboBanner %}
+        {% else %}
             {% partial "header" %}
         {% endif %}
 
