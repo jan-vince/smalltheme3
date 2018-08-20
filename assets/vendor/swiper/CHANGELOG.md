@@ -1,5 +1,53 @@
 # Change Log
 
+## [Swiper 4.3.5](https://github.com/nolimits4web/swiper/compare/v4.3.3...v4.3.5) - Released on July 31, 2018
+  * Core
+    * `iOSEdgeSwipeThreshold` parameter renamed to just `edgeSwipeThreshold`. Old `iOSEdgeSwipeThreshold` name is still supported
+    * Improved observer performance if there are many mutations at a time. Thanks to @rayvincent-bsd
+  * Controller
+    * Fixed issue with wrong auto height resizing
+  * Scrollbar
+    * Fixed issue when it was using active event listeners instead of passive. Thanks to @nyon
+  * Minor fixes
+
+## [Swiper 4.3.3](https://github.com/nolimits4web/swiper/compare/v4.3.2...v4.3.3) - Released on June 5, 2018
+  * Core
+    * Fixed issue when slidePrev goes to wrong slide #2650
+    * Fixed issue when roundLength was not considered for grids calculation #2656
+    * Fixed typo in API #2659
+
+## [Swiper 4.3.2](https://github.com/nolimits4web/swiper/compare/v4.3.0...v4.3.2) - Released on June 1, 2018
+  * Core
+    * Added `addSlide(index, slide)` method to add slide at required position. Thanks to @kochizufan
+    * Fixed issue with loop #2647. Thanks to @kochizufan
+  * Pagination
+    * New `formatFractionCurrent(number)` parameter to format current number in Fraction pagination
+    * New `formatFractionTotal(number)` parameter to format total number in Fraction pagination
+  * Minor fixes
+
+## [Swiper 4.3.0](https://github.com/nolimits4web/swiper/compare/v4.2.6...v4.3.0) - Released on May 27, 2018
+  * Core
+    * Fixed issue when `swipeBack` sometimes slides to wrong slide
+    * Fixed issue when window resizing can break Coverflow effect layout
+    * Fixed issue with wrong detection of `iOSEdgeSwipeDetection`.  Thanks to @langjun
+  * Dom7 update to latest v2.0.6:
+    * Fixed issue with remove event listeners when they was not added
+  * Minor fixes
+
+## [Swiper 4.2.6](https://github.com/nolimits4web/swiper/compare/v4.2.5...v4.2.6) - Released on May 1, 2018
+  * `console.log` cleanup
+
+## [Swiper 4.2.5](https://github.com/nolimits4web/swiper/compare/v4.2.2...v4.2.5) - Released on April 29, 2018
+  * Core
+    * Prevent apply grab cursor when swiper is locked
+    * Fixed breakpoint with loop getting wrong realIndex when on init
+    * Fixed "transformed" slides sizes calculation that could cause issues in with Coverflow effect
+  * Autoplay
+    * Fixed issue that can cause memory leak
+  * Dom7 update to latest
+    *Imporved internal events proxies logic for better memory management
+  * Minor fixes
+
 ## [Swiper 4.2.2](https://github.com/nolimits4web/swiper/compare/v4.2.0...v4.2.2) - Released on April 1, 2018
   * Core
     * Respect and update breakpoints when calling Swiper's `.update()` method

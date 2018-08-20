@@ -6,9 +6,9 @@ export default function (index = 0, speed = this.params.speed, runCallbacks = tr
   if (slideIndex < 0) slideIndex = 0;
 
   const {
-    params, snapGrid, slidesGrid, previousIndex, activeIndex, rtlTranslate: rtl, $wrapperEl,
+    params, snapGrid, slidesGrid, previousIndex, activeIndex, rtlTranslate: rtl,
   } = swiper;
-  if (swiper.animating && params.preventIntercationOnTransition) {
+  if (swiper.animating && params.preventInteractionOnTransition) {
     return false;
   }
 
@@ -83,10 +83,19 @@ export default function (index = 0, speed = this.params.speed, runCallbacks = tr
     swiper.transitionStart(runCallbacks, direction);
     if (!swiper.animating) {
       swiper.animating = true;
-      $wrapperEl.transitionEnd(() => {
-        if (!swiper || swiper.destroyed) return;
-        swiper.transitionEnd(runCallbacks, direction);
-      });
+      if (!swiper.onSlideToWrapperTransitionEnd) {
+        swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
+          if (!swiper || swiper.destroyed) return;
+          if (e.target !== this) return;
+          swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+          swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+          swiper.onSlideToWrapperTransitionEnd = null;
+          delete swiper.onSlideToWrapperTransitionEnd;
+          swiper.transitionEnd(runCallbacks, direction);
+        };
+      }
+      swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+      swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
     }
   }
 
