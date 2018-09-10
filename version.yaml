@@ -15,3 +15,4 @@
 2.3.0: Added blog with categories, posts list, pagination and post detail
 2.4.0: Layouts moved to /default folder. Edited About us page.
 2.4.1: Updated assets
+2.4.2: Fixed blog paginator and meta titles

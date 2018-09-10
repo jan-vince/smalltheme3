@@ -12,6 +12,9 @@ description = "Paginator"
     {% set hasRightDots = false %}
 {% endif %}
 
+{% if category and categoryPage %}
+    {% set page = categoryPage %}
+{% endif %}
 
 <div class='paginator-container'>
 

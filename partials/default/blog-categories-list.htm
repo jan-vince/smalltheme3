@@ -25,7 +25,7 @@ description = "Blog categories menu"
 
 			<li {% if category.slug == this.param[categoryPageSlug] %}class="active"{% endif %}>
 
-				<a href="{{categoryPage|page({(categoryPageSlug):category.slug})}}">{{ category.name }}</a>
+				<a href="{{categoryPage|page({(categoryPageSlug):category.slug,'page':null})}}">{{ category.name }}</a>
 {#}
 				{% if postCount %}
 					<span class="badge">{{ postCount }}</span>
