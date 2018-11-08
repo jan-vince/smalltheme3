@@ -16,3 +16,4 @@
 2.4.0: Layouts moved to /default folder. Edited About us page.
 2.4.1: Updated assets
 2.4.2: Fixed blog paginator and meta titles
+2.4.3: Default Blog pages are now hidden by default

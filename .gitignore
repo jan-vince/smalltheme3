@@ -1,4 +1,12 @@
-####
-##  OTHER
-
 .DS_Store
+.ftpconfig
+.vscode
+
+storage/cms
+storage/framework
+storage/temp
+
+# Except:
+!/storage/database.sqlite
+!/storage/app
+!/storage/log
