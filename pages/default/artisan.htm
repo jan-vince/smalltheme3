@@ -1,0 +1,14 @@
+title = "artisan"
+url = "/artisan/schedule"
+is_hidden = 0
+==
+<?php
+
+function onStart(){
+
+    \Artisan::call('schedule:run');
+
+}
+
+?>
+==

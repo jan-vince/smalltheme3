@@ -17,3 +17,4 @@
 2.4.1: Updated assets
 2.4.2: Fixed blog paginator and meta titles
 2.4.3: Default Blog pages are now hidden by default
+2.5.0: Added artisan call page /artisan/schedule
