@@ -1,13 +1,14 @@
-title = "Blog category"
-url = "/blog/category/:category/:page?"
-layout = "default/blog"
-is_hidden = 1
+title = "Blog posts"
+url = "/blog/:page?"
+layout = "blog"
+is_hidden = 0
 ==
 <?php
 use RainLab\Blog\Models\Post;
 use Cms\Classes\Layout;
 
-    function onStart() {
+    function onEnd() {
+
         $theme = Cms\Classes\Theme::getEditTheme();
         $pageList = new RainLab\Pages\Classes\PageList($theme);
 
@@ -31,36 +32,28 @@ use Cms\Classes\Layout;
             ]
         ];
 
-    }
-
-    function onEnd() {
-
-        if( $this->category ){
-
-            $this->page->title = $this->page->meta_title = 'Posts in ' . $this->category->name;
-            $this->page->meta_description = strip_tags($this->category->description);
-            $this['activeMenuItem'] = $this->category->slug;
-
-        } elseif($this->param('category') and !$this->category) {
-            return $this->controller->run('404');
-        }
-
         /**
         *   SEO redirect
         */
         if ($this->param('page') and $this->param('page') == 1) {
-            return Redirect::to('/blog/category/' . $this->category->slug);
+            return Redirect::to('/blog');
         } 
 
         if($this->param('page') and ( $this->param('page') > 0 and $this->param('page') <= $this->posts->lastPage() )){
-            $this->page->title = $this->page->meta_title = 'Posts in '. $this->category->name . ' (page ' . $this->param('page') . ')';
+            $this->page->title = 'Blog (page ' . $this->param('page') . ')';
+            $this->page->meta_title = 'Blog (page ' . $this->param('page') . ')';
             $this['robots'] = 'noindex, follow';
         } elseif($this->param('page') and ( $this->param('page') < 1 or $this->param('page') > $this->posts->lastPage() ) ) {
             //return $this->controller->run('404');
-            return Redirect::to('/blog/category/' . $this->category->slug);
+            return Redirect::to('/blog');
         }
+    }
+
+    function onInit(){
+        $this['slug'] = $this->param('slug');
     }
 
 ?>
 
 ==
+

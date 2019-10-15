@@ -34,28 +34,16 @@ items:
         title: Blog
         nesting: '0'
         type: static-page
+        url: ''
         code: blog
         reference: blog
-        replace: '0'
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-            note: ''
-            image: ''
-    -
-        title: Gallery
-        nesting: '1'
-        type: static-page
-        url: ''
-        code: ''
-        reference: gallery
         cmsPage: ''
         replace: '0'
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+            note: ''
             image: ''
     -
         title: 'About us'

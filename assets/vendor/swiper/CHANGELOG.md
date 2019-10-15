@@ -1,5 +1,73 @@
 # Change Log
 
+## [Swiper 4.5.1](https://github.com/nolimits4web/swiper/compare/v4.5.0...v4.5.1) - Released on September 13, 2019
+  * Core
+    * Fixed issue when callbacks fires on init even if it disabled (#2807)
+    * Fixed issue when "swiper-slide-visible" class name in some situations shows up when it shouldn't
+    * `slidesPerColumFill: 'row'` now considers groups (#3077)
+  * Thumbs
+    * Fixes bug 'Cannot read property `indexOf` of undefined' that sometimes occurs on use of thumbnails
+  * Keyboard
+    * Added `PageUp`/`PageDown` keybindings.
+  * Autoplay
+    * Fixed issue when window resize stopped autoplay
+  * Parallax
+    * Fixed issue when parallax opacity didn't work (#3147)
+  * Minor fixes and improvements
+
+## [Swiper 4.5.0](https://github.com/nolimits4web/swiper/compare/v4.4.5...v4.5.0) - Released on February 22, 2019
+  * Core
+    * New `swiper.changeDirection()` method to change direction from horizontal to vertical (and back) dynamically
+    * `direction` parameter can be used in breakpoints
+  * Virtual Slides
+    * `swiper.virtual.appendSlide` now accepts array of slides to add
+    * `swiper.virtual.prependSlide` now accepts array of slides to prepend
+    * New `swiper.virtual.removeSlide(indexes)` to remove virtual selected slides
+    * New `swiper.virtual.removeAllSlides()` to remove all virtual slides
+  * Navigation
+    * Now it emits `navigationHide` and `navigationShow` events when on nav hide/show
+  * Pagination
+    * Now it emits `paginationHide` and `paginationShow` events when on pagination hide/show
+  * Dom7 updated to latest 2.1.3
+    * Fixed issue when `.once` bound event could still be there after unbinding it with `.off`
+  * Source
+    * Source styles are now available in SCSS in addition to LESS
+  * Minor fixes and improvements
+
+## [Swiper 4.4.6](https://github.com/nolimits4web/swiper/compare/v4.4.5...v4.4.6) - Released on December 19, 2018
+  * Core
+    * Fixed issue with wrong slide size calculation in some cases
+
+## [Swiper 4.4.5](https://github.com/nolimits4web/swiper/compare/v4.4.2...v4.4.5) - Released on December 14, 2018
+  * Core
+    * New `observeSlideChildren` parameter to enable auto update on slide children update
+    * Fixed issue when slide padding was not considered when calculating sizes
+    * Fixed issue with wrong touch support detection on Windows Chrome
+    * Fixed some issues with wrong slides grid calculation in multi row mode
+  * Zoom
+    * Now it emits `zoomChange` event with `scale`, `imageEl` and `slideEl` arguments
+  * Minor fixes
+
+## [Swiper 4.4.2](https://github.com/nolimits4web/swiper/compare/v4.4.1...v4.4.2) - Released on November 1, 2018
+  * New `touchStartForcePreventDefault` parameter to force touch start event prevent default
+  * Breakpoints fix when breakpoint keys are strings
+  * Fixed issue when draggable scrollbar may not work on desktop Safari
+  * Fixed issue with wrong sort of Virtual Slides
+  * Minor fixes
+
+## [Swiper 4.4.1](https://github.com/nolimits4web/swiper/compare/v4.4.0...v4.4.1) - Released on September 14, 2018
+  * Fixed issue with preventing touchstart event
+
+## [Swiper 4.4.0](https://github.com/nolimits4web/swiper/compare/v4.3.5...v4.4.0) - Released on September 14, 2018
+  * Core
+    * New `centerInsufficientSlides` parameter to center slides if the amount of slides less than `slidesPerView`
+    * New `breakpointsInverse` parameter (boolean), if enabled then it will count breakpoints in reversed direction, e.g. will override parameters if window width is more than specified breakpoint
+  * Virtual Slides
+    * New `addSlidesBefore` and `addSlidesAfter` parameters to increase amount of pre-rendered slides
+  * Thumbs
+    * All new "Thumbs" module/component designed to control slider thumbnails, in more logical and correct way than with Controller module.
+  * Lots of minor fixes
+
 ## [Swiper 4.3.5](https://github.com/nolimits4web/swiper/compare/v4.3.3...v4.3.5) - Released on July 31, 2018
   * Core
     * `iOSEdgeSwipeThreshold` parameter renamed to just `edgeSwipeThreshold`. Old `iOSEdgeSwipeThreshold` name is still supported

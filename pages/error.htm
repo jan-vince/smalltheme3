@@ -1,0 +1,10 @@
+title = "Error page"
+url = "/error"
+layout = "error"
+==
+
+{% if locale != 'cs' %}
+    {% content "default/error.htm" %}
+{% else %}
+    {% content "default/error.cs.htm" %}
+{% endif %}

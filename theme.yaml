@@ -219,5 +219,3 @@ require:
     - RainLab.GoogleAnalytics
     - JanVince.SmallExtensions
     - JanVince.SmallContactForm
-    - JanVince.SmallGallery
-    - JanVince.SmallRecords

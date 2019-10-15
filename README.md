@@ -32,10 +32,6 @@ Update settings in *Settings > Front-end theme > Customize (SmallTheme 3)*.
 There is a default JS combiner setup in  ````/partials/scripts.htm````.
 
 
-### Plugins
-
-This theme will use some of my plugins to show galleries, testimonials, records and contact form.
-
 #### Small Extensions
 
 * Allow Menu notes and Menu images in ````Settings > Small Extensions > Static Pages```` to be able to edit testimonials that are located in ````Pages > Menus > Testimonials````.

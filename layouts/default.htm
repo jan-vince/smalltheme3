@@ -3,7 +3,7 @@ description = "Default page layout"
 [staticPage]
 useContent = false
 default = true
-childLayout = "default/default"
+childLayout = "default"
 
 ==
 <?php
@@ -56,14 +56,6 @@ childLayout = "default/default"
 
         {% endif %}
 
-        {% if showGalleriesTree %}
-            {% partial "default/gallery" blockTitle = galleryTitle blockContent = galleryText blockId = galleryBlockId  customCss = galleryCss %}
-        {% endif %}
-
-        {% if showGallery %}
-            {% partial "default/gallery" blockTitle = galleryTitle blockContent = galleryText blockId = galleryBlockId  customCss = galleryCss %}
-        {% endif %}
-
         {% if showMap %}
             {% partial "default/map-seznam" %}
         {% endif %}
@@ -113,14 +105,6 @@ childLayout = "default/default"
         {variable  type="section" name="contentSectionEnd" span="full"}{/variable}
 
     {/repeater}
-
-
-    {variable tab="Gallery" type="checkbox" name="showGallery" label="Show galleries and photos" span="full"}{/variable}
-    {variable tab="Gallery" type="text" name="galleryTitle" label="Title" span="full"}{/variable}
-    {variable tab="Gallery" type="richeditor" name="galleryText" label="Content" span="full"}{/variable}
-    {variable tab="Gallery" type="section" name="gallerySection1"}{/variable}
-    {variable tab="Gallery" type="text" name="galleryBlockId" label="Custom gallery block ID" span="left"}{/variable}
-    {variable tab="Gallery" type="text" name="galleryCss" label="Custom gallery block class" span="right"}{/variable}
 
     {variable tab="Testimonials" type="checkbox" name="showTestimonials" label="Show testimonials" span="full"}{/variable}
 

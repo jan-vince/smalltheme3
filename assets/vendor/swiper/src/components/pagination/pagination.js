@@ -253,8 +253,8 @@ export default {
       type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
       dynamicBullets: false,
       dynamicMainBullets: 1,
-      formatFractionCurrent: number => number,
-      formatFractionTotal: number => number,
+      formatFractionCurrent: (number) => number,
+      formatFractionTotal: (number) => number,
       bulletClass: 'swiper-pagination-bullet',
       bulletActiveClass: 'swiper-pagination-bullet-active',
       modifierClass: 'swiper-pagination-', // NEW
@@ -326,6 +326,12 @@ export default {
         && swiper.pagination.$el.length > 0
         && !$(e.target).hasClass(swiper.params.pagination.bulletClass)
       ) {
+        const isHidden = swiper.pagination.$el.hasClass(swiper.params.pagination.hiddenClass);
+        if (isHidden === true) {
+          swiper.emit('paginationShow', swiper);
+        } else {
+          swiper.emit('paginationHide', swiper);
+        }
         swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
       }
     },

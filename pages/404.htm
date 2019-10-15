@@ -1,0 +1,10 @@
+title = "Page not found"
+url = "/404"
+layout = "error"
+==
+
+{% if locale != 'cs' %}
+    {% content "default/404.htm" %}
+{% else %}
+    {% content "default/404.cs.htm" %}
+{% endif %}

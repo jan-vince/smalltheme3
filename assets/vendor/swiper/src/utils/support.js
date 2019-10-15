@@ -4,10 +4,10 @@ const Support = (function Support() {
   const testDiv = document.createElement('div');
   return {
     touch: (window.Modernizr && window.Modernizr.touch === true) || (function checkTouch() {
-      return !!(('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch));
+      return !!((window.navigator.maxTouchPoints > 0) || ('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch));
     }()),
 
-    pointerEvents: !!(window.navigator.pointerEnabled || window.PointerEvent),
+    pointerEvents: !!(window.navigator.pointerEnabled || window.PointerEvent || ('maxTouchPoints' in window.navigator && window.navigator.maxTouchPoints > 0)),
     prefixedPointerEvents: !!window.navigator.msPointerEnabled,
 
     transition: (function checkTransition() {

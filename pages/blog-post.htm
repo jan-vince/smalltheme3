@@ -1,11 +1,11 @@
 title = "Blog post"
 url = "/blog/detail/:slug"
-layout = "default/blog-post"
-is_hidden = 1
+layout = "blog-post"
+is_hidden = 0
 
 [blogPost]
 slug = "{{ :slug }}"
-categoryPage = "custom/blog-category"
+categoryPage = "blog-category"
 ==
 <?php
 use RainLab\Blog\Models\Post;

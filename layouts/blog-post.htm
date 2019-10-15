@@ -3,7 +3,7 @@ description = "Blog post detail"
 [staticPage]
 useContent = false
 default = true
-childLayout = "default/default"
+childLayout = "default"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -11,13 +11,13 @@ categoryFilter = "{{ :category }}"
 postsPerPage = 4
 noPostsMessage = "Žádné články nebyly nalezeny"
 sortOrder = "published_at desc"
-categoryPage = "default/blog-category"
-postPage = "default/blog-post"
+categoryPage = "blog-category"
+postPage = "blog-post"
 
 [blogCategories]
 slug = "{{ :category }}"
 displayEmpty = 0
-categoryPage = "default/blog-category"
+categoryPage = "blog-category"
 
 ==
 <?php

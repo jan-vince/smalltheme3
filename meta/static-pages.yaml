@@ -1,7 +1,6 @@
 static-pages:
     index: {  }
     our-work: {  }
-    gallery: {  }
     blog: {  }
     about-us: {  }
     contact: {  }
